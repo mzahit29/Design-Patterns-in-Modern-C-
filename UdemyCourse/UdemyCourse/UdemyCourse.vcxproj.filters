@@ -16,6 +16,9 @@
     <Filter Include="Header Files\SingleResponsibility">
       <UniqueIdentifier>{c4e3d0f9-28f1-4ce3-80af-ece60153add0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Open-Closed">
+      <UniqueIdentifier>{b3532c7f-24ce-4ad7-a8d7-48043f90d83b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -30,6 +33,15 @@
     <ClInclude Include="PersistenceManager.h">
       <Filter>Header Files\SingleResponsibility</Filter>
     </ClInclude>
+    <ClInclude Include="Product.h">
+      <Filter>Header Files\Open-Closed</Filter>
+    </ClInclude>
+    <ClInclude Include="Specification.h">
+      <Filter>Header Files\Open-Closed</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter.h">
+      <Filter>Header Files\Open-Closed</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -42,6 +54,9 @@
       <Filter>Header Files</Filter>
     </ClCompile>
     <ClCompile Include="Configurations.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
