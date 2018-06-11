@@ -54,6 +54,9 @@
     <ClInclude Include="HtmlBuilder.h">
       <Filter>Header Files\Builder</Filter>
     </ClInclude>
+    <ClInclude Include="Tag.h">
+      <Filter>Header Files\Builder</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -10,6 +10,7 @@
 
 #include "HtmlElement.h"
 #include "HtmlBuilder.h"
+#include "Tag.h"
 
 
 void examples::single_responsibility_run()
@@ -106,6 +107,12 @@ void examples::builder_run()
 	HtmlBuilder builder2 = HtmlElement::create("ul", "").add_child("li", "C98").add_child("li", "STL");
 
 	cout << builder2.str();
+
+
+	cout << P {
+		IMG	{"http://gif.com"
+		}
+	};
 
 
 }
