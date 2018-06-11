@@ -8,6 +8,9 @@
 #include "Filter.h"
 #include "Examples.h"
 
+#include "HtmlElement.h"
+#include "HtmlBuilder.h"
+
 
 void examples::single_responsibility_run()
 {
@@ -89,6 +92,20 @@ void examples::open_closed_run()
 	for (auto &x : pfilter.filter(items, blue_and_large))
 	{
 		std::cout << *x;
-		std::cout << "00004";
 	}
+}
+
+void examples::builder_run()
+{
+	HtmlBuilder builder("ul", "");
+	builder.add_child("li", "Modern C++").add_child("li", "Concurrency in C++");
+
+	cout << builder.str();
+
+	// static method create returns an HtmlBuilder instance.
+	HtmlBuilder builder2 = HtmlElement::create("ul", "").add_child("li", "C98").add_child("li", "STL");
+
+	cout << builder2.str();
+
+
 }

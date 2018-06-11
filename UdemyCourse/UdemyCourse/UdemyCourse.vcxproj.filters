@@ -19,6 +19,12 @@
     <Filter Include="Header Files\Open-Closed">
       <UniqueIdentifier>{b3532c7f-24ce-4ad7-a8d7-48043f90d83b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Builder">
+      <UniqueIdentifier>{1a90decc-6d57-472d-b81e-91cef7bdacea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Builder">
+      <UniqueIdentifier>{a412dfbf-063e-4001-8a6d-362e2bcb83ed}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -42,6 +48,12 @@
     <ClInclude Include="Filter.h">
       <Filter>Header Files\Open-Closed</Filter>
     </ClInclude>
+    <ClInclude Include="HtmlElement.h">
+      <Filter>Header Files\Builder</Filter>
+    </ClInclude>
+    <ClInclude Include="HtmlBuilder.h">
+      <Filter>Header Files\Builder</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -58,6 +70,9 @@
     </ClCompile>
     <ClCompile Include="Examples.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HtmlElement.cpp">
+      <Filter>Source Files\Builder</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

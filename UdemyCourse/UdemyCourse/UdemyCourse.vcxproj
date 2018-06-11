@@ -149,6 +149,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Filter.h" />
+    <ClInclude Include="HtmlElement.h" />
+    <ClInclude Include="HtmlBuilder.h" />
     <ClInclude Include="Specification.h" />
     <ClInclude Include="Journal.h" />
     <ClInclude Include="PersistenceManager.h" />
@@ -160,6 +162,7 @@
     <ClCompile Include="Configurations.cpp" />
     <ClCompile Include="Examples.cpp" />
     <ClCompile Include="Examples.h" />
+    <ClCompile Include="HtmlElement.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

@@ -10,5 +10,8 @@ public:
 
 	// Relevant classes are in Open-Closed folder
 	static void open_closed_run();
+
+	// Builder pattern
+	static void builder_run();
 };
 
