@@ -152,7 +152,6 @@
     <ClInclude Include="HtmlElement.h" />
     <ClInclude Include="HtmlBuilder.h" />
     <ClInclude Include="Point.h" />
-    <ClInclude Include="PointFactory.h" />
     <ClInclude Include="Specification.h" />
     <ClInclude Include="Journal.h" />
     <ClInclude Include="PersistenceManager.h" />

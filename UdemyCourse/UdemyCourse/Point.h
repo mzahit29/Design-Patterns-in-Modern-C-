@@ -17,4 +17,22 @@ public:
 		
 		return out;
 	}
+
+	class PointFactory;
+	static PointFactory Factory;
+
+private:
+	class PointFactory
+	{
+	public:
+		static Point NewPolar(float r, float theta)
+		{
+			return Point{ r * cos(theta), r * sin(theta) };
+		}
+
+		static Point NewCartesian(float x, float y)
+		{
+			return Point{ x, y };
+		}
+	};
 };
