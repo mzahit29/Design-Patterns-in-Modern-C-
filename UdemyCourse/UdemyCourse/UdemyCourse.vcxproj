@@ -148,7 +148,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DrinkFactoryMap.h" />
     <ClInclude Include="Filter.h" />
+    <ClInclude Include="HotDrink.h" />
+    <ClInclude Include="HotDrinkFactory.h" />
     <ClInclude Include="HtmlElement.h" />
     <ClInclude Include="HtmlBuilder.h" />
     <ClInclude Include="Point.h" />

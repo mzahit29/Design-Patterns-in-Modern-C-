@@ -16,5 +16,8 @@ public:
 
 	// Factory method pattern
 	static void factory_method_run();
+
+	// Abstract Factory pattern
+	static void abstract_factory_run();
 };
 

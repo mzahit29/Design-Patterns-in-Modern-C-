@@ -15,6 +15,8 @@
 
 #include <cmath>  
 #include "Point.h"
+#include "HotDrink.h"
+#include "DrinkFactoryMap.h"
 
 void examples::single_responsibility_run()
 {
@@ -131,4 +133,40 @@ void examples::factory_method_run()
 	//Point p = PointFactory::NewPolar(5.0f, M_PI_4);  // InnerFactory: PointFactory is defined inside Point class.
 	Point p = Point::PointFactory::NewCartesian(10.5f, 25.4f);
 	cout << p;
+}
+
+void examples::abstract_factory_run()
+{
+	cout << "\n\n" << "ABSTRACT FACTORY METHOD" << "___________________________" << endl;
+
+	// 1- OK! Creating an object directly on stack
+	Tea t;
+	t.prepare();
+	// 2- BAD! Creating an object on heap, drawback is you have to delete later (manual memory management)
+	Tea *tp = new Tea();
+	tp->prepare();
+	delete tp;
+	// 3- WRONG! Creating an object on stack but storing it in a unique ptr (ERROR will result in program crash)
+	//Coffee c88;
+	//unique_ptr<Coffee> uc(&c88);	// ERROR: Program crashes trying to delete a local object.
+	//uc->prepare();
+	// 4- BEST PRACTICE! Creating an object on heap and storing it in a unique ptr (CORRECT, no manual memory management required)
+	unique_ptr<Coffee> uc2(new Coffee());
+	uc2->prepare();
+	unique_ptr<Coffee> uc3 = make_unique<Coffee>();
+	uc3->prepare();
+	// 5- Using Factory class to create a coffee object
+	CoffeFactory cf;
+	unique_ptr<HotDrink> uc4 = cf.make();  // Create a hot drink using factory's make method, we can do this because we have a HotDrink base class.
+	uc4->prepare();
+	TeaFactory tf;
+	auto ut = tf.make();
+	ut->prepare();
+	// 6- In method 5 you have to create each distinct factory (tea or coffee) separately, instead we use a mapper class which has TeaFactory and CoffeeFactory created in a map
+	// Here polymorphism is in effect since the factory_map is map<string, unique_ptr<HotDrinkFactory>>, meaning it is mapping to the base class of both TeaFactory and CoffeeFactory
+	DrinkFactoryMap dmap;
+	unique_ptr<HotDrink> hd = dmap.factory_map["Coffee"]->make();
+	hd->prepare();
+	// OR simply call it fluently
+	dmap.factory_map["Tea"]->make()->prepare();
 }

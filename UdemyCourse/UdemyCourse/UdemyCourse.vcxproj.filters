@@ -28,6 +28,9 @@
     <Filter Include="Header Files\Factory Method - Factory - Inner Factory">
       <UniqueIdentifier>{2e067079-1899-42c6-8dff-5111bb826596}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Abstract Factory">
+      <UniqueIdentifier>{5e5670e8-5cb8-4805-b651-eb7c92d4b8bf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -62,6 +65,15 @@
     </ClInclude>
     <ClInclude Include="Point.h">
       <Filter>Header Files\Factory Method - Factory - Inner Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="HotDrink.h">
+      <Filter>Header Files\Abstract Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="HotDrinkFactory.h">
+      <Filter>Header Files\Abstract Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="DrinkFactoryMap.h">
+      <Filter>Header Files\Abstract Factory</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
