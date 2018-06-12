@@ -28,6 +28,9 @@
     <Filter Include="Header Files\Factory Method">
       <UniqueIdentifier>{2e067079-1899-42c6-8dff-5111bb826596}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Factory">
+      <UniqueIdentifier>{eaac4cbc-4051-4c54-89a2-ae819860ce51}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -64,7 +67,7 @@
       <Filter>Header Files\Factory Method</Filter>
     </ClInclude>
     <ClInclude Include="PointFactory.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Factory</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

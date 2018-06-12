@@ -15,6 +15,7 @@
 
 #include <cmath>  
 #include "Point.h"
+#include "PointFactory.h"
 
 void examples::single_responsibility_run()
 {
@@ -127,6 +128,7 @@ void examples::factory_method_run()
 {
 	cout << "\n\n" << "FACTORY METHOD" << "___________________________" << endl;
 	//Point p0{ 5, 5 };	// ERROR: private constructor. Has to be constructed through the static factory method of the class itself like below
-	Point p = Point::NewPolar(5.0f, M_PI_4);
+	//Point p = Point::NewPolar(5.0f, M_PI_4);  // Use PointFactory instead of factory method.
+	Point p = PointFactory::NewPolar(5.0f, M_PI_4);
 	cout << p;
 }
