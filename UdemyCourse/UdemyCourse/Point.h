@@ -18,10 +18,6 @@ public:
 		return out;
 	}
 
-	class PointFactory;
-	static PointFactory Factory;
-
-private:
 	class PointFactory
 	{
 	public:
