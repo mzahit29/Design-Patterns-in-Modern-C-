@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#define _USE_MATH_DEFINES // for C++ 
 #include <iostream>
 #include "Journal.h"
 #include "PersistenceManager.h"
@@ -12,9 +13,12 @@
 #include "HtmlBuilder.h"
 #include "Tag.h"
 
+#include <cmath>  
+#include "Point.h"
 
 void examples::single_responsibility_run()
 {
+	cout << "\n\n" << "SINGLE RESPONSIBILITY" << "___________________________" << endl;
 	journal j("My Diary");
 	j.add("Today is a shitty day");
 	j.add("I watched Roland Garros today");
@@ -29,6 +33,7 @@ void examples::single_responsibility_run()
 // Relevant classes are in Open-Closed folder
 void examples::open_closed_run()
 {
+	cout << "\n\n" << "OPEN CLOSED PRINCIPLE" << "___________________________" << endl;
 	// Most primitive way two separate functions that filter. They do the same thing and only the condition is different.
 	//std::vector<Product &> result = filter_by_color(std::vector<product &> &pr_vector, color::blue);
 	//std::vector<Product &> result = filter_by_size(std::vector<product &> &pr_vector, size::large);
@@ -98,6 +103,7 @@ void examples::open_closed_run()
 
 void examples::builder_run()
 {
+	cout << "\n\n" << "BUILDER PATTERN" << "___________________________" << endl;
 	HtmlBuilder builder("ul", "");
 	builder.add_child("li", "Modern C++").add_child("li", "Concurrency in C++");
 
@@ -115,4 +121,12 @@ void examples::builder_run()
 	};
 
 
+}
+
+void examples::factory_method_run()
+{
+	cout << "\n\n" << "FACTORY METHOD" << "___________________________" << endl;
+	//Point p0{ 5, 5 };	// ERROR: private constructor. Has to be constructed through the static factory method of the class itself like below
+	Point p = Point::NewPolar(5.0f, M_PI_4);
+	cout << p;
 }

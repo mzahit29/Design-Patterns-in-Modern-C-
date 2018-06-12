@@ -13,5 +13,8 @@ public:
 
 	// Builder pattern
 	static void builder_run();
+
+	// Factory method pattern
+	static void factory_method_run();
 };
 

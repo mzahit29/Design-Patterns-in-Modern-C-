@@ -25,6 +25,9 @@
     <Filter Include="Source Files\Builder">
       <UniqueIdentifier>{a412dfbf-063e-4001-8a6d-362e2bcb83ed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Factory Method">
+      <UniqueIdentifier>{2e067079-1899-42c6-8dff-5111bb826596}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -56,6 +59,12 @@
     </ClInclude>
     <ClInclude Include="Tag.h">
       <Filter>Header Files\Builder</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Header Files\Factory Method</Filter>
+    </ClInclude>
+    <ClInclude Include="PointFactory.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
