@@ -165,8 +165,11 @@ void examples::abstract_factory_run()
 	// 6- In method 5 you have to create each distinct factory (tea or coffee) separately, instead we use a mapper class which has TeaFactory and CoffeeFactory created in a map
 	// Here polymorphism is in effect since the factory_map is map<string, unique_ptr<HotDrinkFactory>>, meaning it is mapping to the base class of both TeaFactory and CoffeeFactory
 	DrinkFactoryMap dmap;
-	unique_ptr<HotDrink> hd = dmap.factory_map["Coffee"]->make();
-	hd->prepare();
+	dmap.make_drink("Tea");
 	// OR simply call it fluently
-	dmap.factory_map["Tea"]->make()->prepare();
+	dmap.make_drink("Coffee");
+
+	// 7- Using Functional Factory
+	DrinkFactoryFunctionalMap dfmap;
+	dfmap.make_drink("Tea");
 }
