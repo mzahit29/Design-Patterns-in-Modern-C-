@@ -17,6 +17,7 @@
 #include "Point.h"
 #include "HotDrink.h"
 #include "DrinkFactoryMap.h"
+#include "Contact.h"
 
 void examples::single_responsibility_run()
 {
@@ -172,4 +173,28 @@ void examples::abstract_factory_run()
 	// 7- Using Functional Factory
 	DrinkFactoryFunctionalMap dfmap;
 	dfmap.make_drink("Tea");
+}
+
+void examples::prototype_run()
+{
+	// Method 1: Creating Contact objects with constructor is time consuming
+	Contact Zahit{ "Zahit Ozcan", Address{"Ankara", "Urankent", "52"} };
+	Contact Betul{ "Betul Ozcan", Address{"Ankara", "Urankent", "44"} };
+	cout << Zahit << endl << Betul << endl;
+
+	// Method 2: Create one Contact object as prototype and then create copies from it.
+	Contact Erdem = Zahit;  // Shallow copy but doesn't pose any problems because there are no pointers inside Contact class
+	Erdem.name_ = "Erdem Kaymaz";
+
+	cout << Erdem << endl;
+
+	// Method 3: (Assuming no copy constructor exists) This copying is shallow copy so it won't work if Contact has pointers
+	Contact_With_Pointer Ersin{ "Ersin", new Address{"Ankara", "Galyum", "42"} };
+	Contact_With_Pointer Hakan = Ersin;   // If copy constructor is implemented properly this will work
+
+	Hakan.name_ = "Hakan";   // Shallow copy
+	Hakan.address_->number_ = "88";	// ERROR: Modifies Ersin's Address number as well
+	Hakan.address_->city_ = "Gazipasa";
+
+	cout << Ersin << endl << Hakan << endl;
 }

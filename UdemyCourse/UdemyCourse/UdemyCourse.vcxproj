@@ -148,6 +148,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Contact.h" />
     <ClInclude Include="DrinkFactoryMap.h" />
     <ClInclude Include="Filter.h" />
     <ClInclude Include="HotDrink.h" />

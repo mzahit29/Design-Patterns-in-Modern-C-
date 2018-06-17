@@ -31,6 +31,9 @@
     <Filter Include="Header Files\Abstract Factory">
       <UniqueIdentifier>{5e5670e8-5cb8-4805-b651-eb7c92d4b8bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Prototype">
+      <UniqueIdentifier>{b5cb35d5-ffe1-4a97-ba60-dffa735b9226}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -74,6 +77,9 @@
     </ClInclude>
     <ClInclude Include="DrinkFactoryMap.h">
       <Filter>Header Files\Abstract Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Contact.h">
+      <Filter>Header Files\Prototype</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -19,5 +19,8 @@ public:
 
 	// Abstract Factory pattern
 	static void abstract_factory_run();
+
+	// Prototype pattern
+	static void prototype_run();
 };
 
