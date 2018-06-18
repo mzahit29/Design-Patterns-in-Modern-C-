@@ -24,6 +24,7 @@
 #include "Singleton.h"
 #include "Person.h"
 #include "Shape.h"
+#include "GraphicObject.h"
 
 void examples::single_responsibility_run()
 {
@@ -262,4 +263,19 @@ void examples::bridge_run()
 	c2.draw();
 	c2.resize(0.5f);
 	c2.draw();
+}
+
+void examples::composite_run()
+{
+	CircleGraphic cg;
+	SquareGraphic sg;
+	Group main_group{"main group"};
+	Group sub_group{ "sub_group" };
+
+
+	// Individual objects i.e sg and collection of objects i.e. main_group all behave the same way (they have the same draw() API)
+	main_group.add(&cg);
+	sub_group.add(&sg);
+	main_group.add(&sub_group); // You can add a group to another group since Group inherits from GraphicObject as well.
+	main_group.draw();
 }

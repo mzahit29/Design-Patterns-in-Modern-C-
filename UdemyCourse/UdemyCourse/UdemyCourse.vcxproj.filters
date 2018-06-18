@@ -46,6 +46,9 @@
     <Filter Include="Header Files\Bridge">
       <UniqueIdentifier>{55dab699-c9fc-48df-addb-1c05d79ffd0d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Composite">
+      <UniqueIdentifier>{2e5556b5-8eb4-47bb-903f-614168661fe6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -107,6 +110,9 @@
     </ClInclude>
     <ClInclude Include="Shape.h">
       <Filter>Header Files\Bridge</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicObject.h">
+      <Filter>Header Files\Composite</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

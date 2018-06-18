@@ -31,5 +31,8 @@ public:
 
 	// Bridge pattern
 	static void bridge_run();
+
+	// Composite pattern
+	static void composite_run();
 };
 
