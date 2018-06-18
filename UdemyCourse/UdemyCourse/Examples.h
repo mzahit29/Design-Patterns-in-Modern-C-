@@ -22,5 +22,8 @@ public:
 
 	// Prototype pattern
 	static void prototype_run();
+
+	// Singleton pattern
+	static void singleton_run();
 };
 

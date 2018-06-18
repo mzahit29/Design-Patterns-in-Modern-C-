@@ -21,6 +21,7 @@
 #include "EmployeeFactory.h"
 
 #include <sstream>
+#include "Singleton.h"
 
 void examples::single_responsibility_run()
 {
@@ -231,4 +232,9 @@ void examples::prototype_run()
 	x.name_ = "Jane Smith";
 	cout << "Serialized obj: " << *Employee_3 << endl;
 	cout << "Deserialized obj: " << x << endl;
+}
+
+void examples::singleton_run()
+{
+	cout << "Tokyo population: " << Singleton::GetInstance().get_population("Tokyo") << endl;
 }

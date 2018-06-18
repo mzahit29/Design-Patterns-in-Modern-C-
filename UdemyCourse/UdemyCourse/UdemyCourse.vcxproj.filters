@@ -34,6 +34,9 @@
     <Filter Include="Header Files\Prototype">
       <UniqueIdentifier>{b5cb35d5-ffe1-4a97-ba60-dffa735b9226}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Singleton">
+      <UniqueIdentifier>{b2fc75c8-7942-45a5-8866-adaef4548d80}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -84,6 +87,9 @@
     <ClInclude Include="EmployeeFactory.h">
       <Filter>Header Files\Prototype</Filter>
     </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>Header Files\Singleton</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -104,5 +110,10 @@
     <ClCompile Include="HtmlElement.cpp">
       <Filter>Source Files\Builder</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Capitals.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

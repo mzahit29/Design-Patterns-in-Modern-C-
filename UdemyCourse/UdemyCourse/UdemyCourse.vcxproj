@@ -159,6 +159,7 @@
     <ClInclude Include="HtmlElement.h" />
     <ClInclude Include="HtmlBuilder.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="Singleton.h" />
     <ClInclude Include="Specification.h" />
     <ClInclude Include="Journal.h" />
     <ClInclude Include="PersistenceManager.h" />
@@ -179,6 +180,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="UdemyCourse.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Capitals.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
