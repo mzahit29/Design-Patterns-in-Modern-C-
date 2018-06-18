@@ -18,6 +18,9 @@
 #include "HotDrink.h"
 #include "DrinkFactoryMap.h"
 #include "Contact.h"
+#include "EmployeeFactory.h"
+
+#include <sstream>
 
 void examples::single_responsibility_run()
 {
@@ -178,23 +181,54 @@ void examples::abstract_factory_run()
 void examples::prototype_run()
 {
 	// Method 1: Creating Contact objects with constructor is time consuming
-	Contact Zahit{ "Zahit Ozcan", Address{"Ankara", "Urankent", "52"} };
-	Contact Betul{ "Betul Ozcan", Address{"Ankara", "Urankent", "44"} };
+	Contact_No_Pointers Zahit{ "Zahit Ozcan", Address{"Ankara", "Urankent", "52"} };
+	Contact_No_Pointers Betul{ "Betul Ozcan", Address{"Ankara", "Urankent", "44"} };
 	cout << Zahit << endl << Betul << endl;
 
 	// Method 2: Create one Contact object as prototype and then create copies from it.
-	Contact Erdem = Zahit;  // Shallow copy but doesn't pose any problems because there are no pointers inside Contact class
+	Contact_No_Pointers Erdem = Zahit;  // Shallow copy but doesn't pose any problems because there are no pointers inside Contact class
 	Erdem.name_ = "Erdem Kaymaz";
 
 	cout << Erdem << endl;
 
 	// Method 3: (Assuming no copy constructor exists) This copying is shallow copy so it won't work if Contact has pointers
-	Contact_With_Pointer Ersin{ "Ersin", new Address{"Ankara", "Galyum", "42"} };
-	Contact_With_Pointer Hakan = Ersin;   // If copy constructor is implemented properly this will work
+	Contact Ersin{ "Ersin", new Address{"Ankara", "Galyum", "42"} };
+	Contact Hakan = Ersin;   // Shallow copy. If copy constructor is implemented properly this will work
 
-	Hakan.name_ = "Hakan";   // Shallow copy
+	Hakan.name_ = "Hakan";
 	Hakan.address_->number_ = "88";	// ERROR: Modifies Ersin's Address number as well
 	Hakan.address_->city_ = "Gazipasa";
 
 	cout << Ersin << endl << Hakan << endl;
+
+
+	// Method 4: Employee factory which holds a static Contact prototype and uses this prototype to create copies
+	unique_ptr<Contact> Employee_1 = EmployeeFactory::new_main_office_employee("Muhammet Zahit Ozcan", "5152");
+	cout << *Employee_1 << endl;
+	auto Employee_2 = EmployeeFactory::new_istanbul_office_employee("Erdem Kaymaz", "6521");
+	cout << *Employee_2 << endl;
+
+	// Method 5: Serialize/Deserialize using boost archive
+	// We implement a lambda which serializes and then deserializes the object and returns it
+	// This is another way of deep copying. Instead of writing copy constructor code for each class in the class graph
+	// you write serialization code (using boost) for each class
+	auto clone = [](const Contact & c){
+		ostringstream oss;
+		archive::text_oarchive oa(oss);
+		oa << c;
+		string s = oss.str();
+		cout << s << endl;
+
+		istringstream iss(s);
+		archive::text_iarchive ia(iss);
+		Contact result;
+		ia >> result;
+		return result;
+	};
+
+	auto Employee_3 = EmployeeFactory::new_istanbul_office_employee("John Doe", "4124");
+	Contact x = clone(*Employee_3);  // Employee_3 is serialized and then deserialized back to x
+	x.name_ = "Jane Smith";
+	cout << "Serialized obj: " << *Employee_3 << endl;
+	cout << "Deserialized obj: " << x << endl;
 }

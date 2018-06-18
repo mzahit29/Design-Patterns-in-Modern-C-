@@ -81,6 +81,9 @@
     <ClInclude Include="Contact.h">
       <Filter>Header Files\Prototype</Filter>
     </ClInclude>
+    <ClInclude Include="EmployeeFactory.h">
+      <Filter>Header Files\Prototype</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
