@@ -43,6 +43,9 @@
     <Filter Include="Source Files\Pimpl Idiom">
       <UniqueIdentifier>{8ed0d086-f3ad-42d7-8c8f-256bd3a51bb0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Bridge">
+      <UniqueIdentifier>{55dab699-c9fc-48df-addb-1c05d79ffd0d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -98,6 +101,12 @@
     </ClInclude>
     <ClInclude Include="Person.h">
       <Filter>Header Files\Pimpl Idiom</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Header Files\Bridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape.h">
+      <Filter>Header Files\Bridge</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -28,5 +28,8 @@ public:
 
 	// Pimpl Idiom
 	static void pimpl_run();
+
+	// Bridge pattern
+	static void bridge_run();
 };
 

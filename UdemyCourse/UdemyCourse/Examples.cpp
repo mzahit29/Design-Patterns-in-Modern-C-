@@ -23,6 +23,7 @@
 #include <sstream>
 #include "Singleton.h"
 #include "Person.h"
+#include "Shape.h"
 
 void examples::single_responsibility_run()
 {
@@ -244,4 +245,21 @@ void examples::pimpl_run()
 {
 	Person p("Zahit");
 	p.greet();
+}
+
+void examples::bridge_run()
+{
+	// You can create Circle objects and pass different Renderers to it. This is bridge'ing different components
+	// into Circle object.
+	RasterRenderer rr;
+	Circle c{ rr, 4, 4, 10 };
+	c.draw();
+	c.resize(2);
+	c.draw();
+
+	VectorRenderer vr;
+	Circle c2{ vr, 2, 2, 20 };
+	c2.draw();
+	c2.resize(0.5f);
+	c2.draw();
 }

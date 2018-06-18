@@ -160,6 +160,8 @@
     <ClInclude Include="HtmlBuilder.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Shape.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Specification.h" />
     <ClInclude Include="Journal.h" />
