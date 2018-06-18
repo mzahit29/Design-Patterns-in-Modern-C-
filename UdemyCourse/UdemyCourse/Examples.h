@@ -25,5 +25,8 @@ public:
 
 	// Singleton pattern
 	static void singleton_run();
+
+	// Pimpl Idiom
+	static void pimpl_run();
 };
 

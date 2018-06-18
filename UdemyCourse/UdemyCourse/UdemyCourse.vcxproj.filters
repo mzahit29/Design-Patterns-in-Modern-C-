@@ -37,6 +37,12 @@
     <Filter Include="Header Files\Singleton">
       <UniqueIdentifier>{b2fc75c8-7942-45a5-8866-adaef4548d80}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Pimpl Idiom">
+      <UniqueIdentifier>{ef7c5315-c5a9-4502-a1ef-64d6504304c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Pimpl Idiom">
+      <UniqueIdentifier>{8ed0d086-f3ad-42d7-8c8f-256bd3a51bb0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -90,6 +96,9 @@
     <ClInclude Include="Singleton.h">
       <Filter>Header Files\Singleton</Filter>
     </ClInclude>
+    <ClInclude Include="Person.h">
+      <Filter>Header Files\Pimpl Idiom</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -109,6 +118,9 @@
     </ClCompile>
     <ClCompile Include="HtmlElement.cpp">
       <Filter>Source Files\Builder</Filter>
+    </ClCompile>
+    <ClCompile Include="Person.cpp">
+      <Filter>Source Files\Pimpl Idiom</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

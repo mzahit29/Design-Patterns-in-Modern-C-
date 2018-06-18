@@ -22,6 +22,7 @@
 
 #include <sstream>
 #include "Singleton.h"
+#include "Person.h"
 
 void examples::single_responsibility_run()
 {
@@ -237,4 +238,10 @@ void examples::prototype_run()
 void examples::singleton_run()
 {
 	cout << "Tokyo population: " << Singleton::GetInstance().get_population("Tokyo") << endl;
+}
+
+void examples::pimpl_run()
+{
+	Person p("Zahit");
+	p.greet();
 }
