@@ -123,6 +123,9 @@
     <ClInclude Include="Creature.h">
       <Filter>Header Files\Array Backed Properties</Filter>
     </ClInclude>
+    <ClInclude Include="CompositeExercise.h">
+      <Filter>Header Files\Composite</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

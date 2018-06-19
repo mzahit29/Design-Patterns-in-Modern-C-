@@ -150,6 +150,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CompositeExercise.h" />
     <ClInclude Include="Contact.h" />
     <ClInclude Include="Creature.h" />
     <ClInclude Include="DrinkFactoryMap.h" />

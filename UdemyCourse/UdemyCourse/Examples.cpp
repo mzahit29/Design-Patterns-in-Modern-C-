@@ -27,6 +27,7 @@
 #include "GraphicObject.h"
 #include "Neuron.h"
 #include "Creature.h"
+#include "CompositeExercise.h"
 
 void examples::single_responsibility_run()
 {
@@ -324,5 +325,13 @@ void examples::composite_run()
 	cout << "Orc average stat: " << orc.avg()
 		<< "\nOrc max stat: " << orc.max()
 		<< "\nOrc sum of stats: " << orc.sum() << endl;
+
+
+	// Coding Exercise
+	SingleValue sv{ 1 };
+	ManyValues mv;
+	mv.add(4);
+	mv.add(3);
+	cout << "Sum: " << sum({ &sv, &mv }) << endl;
 
 }
