@@ -151,6 +151,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Contact.h" />
+    <ClInclude Include="Creature.h" />
     <ClInclude Include="DrinkFactoryMap.h" />
     <ClInclude Include="EmployeeFactory.h" />
     <ClInclude Include="Filter.h" />

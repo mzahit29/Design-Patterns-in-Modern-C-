@@ -26,6 +26,7 @@
 #include "Shape.h"
 #include "GraphicObject.h"
 #include "Neuron.h"
+#include "Creature.h"
 
 void examples::single_responsibility_run()
 {
@@ -310,5 +311,18 @@ void examples::composite_run()
 
 	cout << neuron_layer_1;
 
+
+
+
+	// Array Backed Properties
+	// Using array backed properties it is possible to write much tidier code for sum, avg and max
+	Creature orc;
+	orc.set_agility(10);
+	orc.set_strength(20);
+	orc.set_intel(5);
+
+	cout << "Orc average stat: " << orc.avg()
+		<< "\nOrc max stat: " << orc.max()
+		<< "\nOrc sum of stats: " << orc.sum() << endl;
 
 }

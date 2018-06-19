@@ -49,6 +49,9 @@
     <Filter Include="Header Files\Composite">
       <UniqueIdentifier>{2e5556b5-8eb4-47bb-903f-614168661fe6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Array Backed Properties">
+      <UniqueIdentifier>{255325a1-5225-484c-bcc4-0b52f9fa0cdb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -116,6 +119,9 @@
     </ClInclude>
     <ClInclude Include="Neuron.h">
       <Filter>Header Files\Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="Creature.h">
+      <Filter>Header Files\Array Backed Properties</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
