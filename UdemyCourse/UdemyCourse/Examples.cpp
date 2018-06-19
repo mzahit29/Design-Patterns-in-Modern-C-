@@ -25,6 +25,7 @@
 #include "Person.h"
 #include "Shape.h"
 #include "GraphicObject.h"
+#include "Neuron.h"
 
 void examples::single_responsibility_run()
 {
@@ -184,6 +185,7 @@ void examples::abstract_factory_run()
 
 void examples::prototype_run()
 {
+	cout << "\n\n" << "PROTOTYPE PATTERN" << "___________________________" << endl;
 	// Method 1: Creating Contact objects with constructor is time consuming
 	Contact_No_Pointers Zahit{ "Zahit Ozcan", Address{"Ankara", "Urankent", "52"} };
 	Contact_No_Pointers Betul{ "Betul Ozcan", Address{"Ankara", "Urankent", "44"} };
@@ -239,17 +241,20 @@ void examples::prototype_run()
 
 void examples::singleton_run()
 {
+	cout << "\n\n" << "SINGLETON PATTERN" << "___________________________" << endl;
 	cout << "Tokyo population: " << Singleton::GetInstance().get_population("Tokyo") << endl;
 }
 
 void examples::pimpl_run()
 {
+	cout << "\n\n" << "PIMPL IDIOM" << "___________________________" << endl;
 	Person p("Zahit");
 	p.greet();
 }
 
 void examples::bridge_run()
 {
+	cout << "\n\n" << "BRIDGE PATTERN" << "___________________________" << endl;
 	// You can create Circle objects and pass different Renderers to it. This is bridge'ing different components
 	// into Circle object.
 	RasterRenderer rr;
@@ -267,6 +272,7 @@ void examples::bridge_run()
 
 void examples::composite_run()
 {
+	cout << "\n\n" << "COMPOSITE PATTERN" << "___________________________" << endl;
 	CircleGraphic cg;
 	SquareGraphic sg;
 	Group main_group{"main group"};
@@ -278,4 +284,31 @@ void examples::composite_run()
 	sub_group.add(&sg);
 	main_group.add(&sub_group); // You can add a group to another group since Group inherits from GraphicObject as well.
 	main_group.draw();
+
+
+
+	// Neuron composite
+	Neuron n1, n2, n3, n4;
+
+	// Connecting neuron to neuron
+	n1.connect_to(n2);
+	n2.connect_to(n4);
+	n3.connect_to(n2);
+
+	// Neuron layer composite
+	NeuronLayer neuron_layer_1{ 5 }, neuron_layer_2{ 3 };
+
+	// With one connect_to template function we can make all 4 possible connections
+	// 1- NeuronLayer -> NeuronLayer, 
+	neuron_layer_1.connect_to(neuron_layer_2);
+	// 2- NeuronLayer -> Neuron,
+	neuron_layer_1.connect_to(n2);
+	// 3- Neuron -> NeuronLayer, 
+	n1.connect_to(neuron_layer_1);
+	// 4- Neuron -> Neuron
+	n3.connect_to(n1);
+
+	cout << neuron_layer_1;
+
+
 }

@@ -35,4 +35,3 @@ public:
 	// Composite pattern
 	static void composite_run();
 };
-
