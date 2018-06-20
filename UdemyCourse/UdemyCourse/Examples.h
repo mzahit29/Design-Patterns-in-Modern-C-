@@ -37,4 +37,7 @@ public:
 
 	// Decorator pattern
 	static void decorator_run();
+
+	// Flyweight pattern
+	static void flyweight_run();
 };

@@ -55,6 +55,9 @@
     <Filter Include="Header Files\Decorator">
       <UniqueIdentifier>{84f455c9-caa3-43bd-a1f4-3f46a1ac167a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Flyweight Pattern">
+      <UniqueIdentifier>{82d96bcf-9bb0-4e36-88a4-c2d9a041586a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -137,6 +140,9 @@
     </ClInclude>
     <ClInclude Include="Functional_Decorator.h">
       <Filter>Header Files\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="User.h">
+      <Filter>Header Files\Flyweight Pattern</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

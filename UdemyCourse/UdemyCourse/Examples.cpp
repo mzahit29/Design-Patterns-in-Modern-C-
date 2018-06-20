@@ -31,6 +31,7 @@
 #include "Shape_2.h"
 #include "Shape_Static_Decorator.h"
 #include "Functional_Decorator.h"
+#include "User.h"
 
 void examples::single_responsibility_run()
 {
@@ -430,5 +431,16 @@ void examples::decorator_run()
 	// Or you could use the make_logger3 to create the Logger3 instance without having to specify the template arguments
 	auto logger3_ = make_logger3(add, "add");
 	logger3(4, 8);
+
+}
+
+void examples::flyweight_run()
+{
+	cout << "\n\n" << "FLYWEIGHT PATTERN" << "___________________________" << endl;
+	User u{ "Zahit", "Ozcan" };
+	User u2{ "Zahit", "Ozkan" };
+
+	cout << u << endl;
+	cout << u2 << endl;
 
 }
