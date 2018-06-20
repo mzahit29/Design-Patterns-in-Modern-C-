@@ -132,6 +132,9 @@
     <ClInclude Include="Shape_2.h">
       <Filter>Header Files\Decorator</Filter>
     </ClInclude>
+    <ClInclude Include="Shape_Static_Decorator.h">
+      <Filter>Header Files\Decorator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

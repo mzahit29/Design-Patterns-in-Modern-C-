@@ -29,6 +29,7 @@
 #include "Creature.h"
 #include "CompositeExercise.h"
 #include "Shape_2.h"
+#include "Shape_Static_Decorator.h"
 
 void examples::single_responsibility_run()
 {
@@ -339,6 +340,9 @@ void examples::composite_run()
 
 void examples::decorator_run()
 {
+	cout << "\n\n" << "DECORATOR PATTERN" << "___________________________" << endl;
+	cout << "\n\n" << "DYNAMIC DECORATOR" << "___________________________" << endl;
+
 	using namespace Decorator;
 	Decorator::Circle circle{ 5 };
 	cout << circle.str() << endl;
@@ -381,5 +385,19 @@ void examples::decorator_run()
 	// We can decorate an already decorated obj like a colored shape
 	TransparentShape transparent_circle{ red_circle, 55 };
 	cout << transparent_circle.str() << endl;
+
+
+
+
+	// Static decorator
+	cout << "\n\n" << "STATIC DECORATOR" << "___________________________" << endl;
+	ColoredShape2<Decorator::Circle> cir{ "red", 5 };
+	// Now we can call resize on the circle since we have inherited from Circle using template
+	cir.resize(2.f);
+	cout << cir.str() << endl;
+
+	TransparentShape2<ColoredShape2<Decorator::Circle>> transparent_circle2{ 42.f, "green", 4 };
+	transparent_circle2.resize(4);  // You can again resize transparent_circle2 because it is a Circle, it inherited from Circle
+	cout << transparent_circle2.str() << endl;
 
 }
