@@ -443,4 +443,14 @@ void examples::flyweight_run()
 	cout << u << endl;
 	cout << u2 << endl;
 
+	User2 u3{ "Betül", "Ozcan" };
+	User2 u4{ "Zahit", "Ozcan" };
+
+	cout << u3.first_name_ << " " << u3.last_name_ << endl;
+	cout << u4.first_name_ << " " << u4.last_name_ << endl;
+
+	cout << boolalpha;
+	cout << (u3.first_name_.get() == u4.first_name_.get()) << endl;
+	// u3 and u4 last_name_ refer to the same flyweight object
+	cout << (u3.last_name_.get() == u4.last_name_.get()) << endl;
 }

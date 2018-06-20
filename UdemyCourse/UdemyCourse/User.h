@@ -2,6 +2,7 @@
 #include <string>
 #include <cstdint>
 #include <boost/bimap.hpp>
+#include <boost/flyweight.hpp>
 #include <ostream>
 
 
@@ -60,3 +61,20 @@ public:
 
 key User::seed_{ 0 };
 bimap<key, string> User::names_{};
+
+
+
+// Using boost flyweight
+class User2
+{
+
+public:
+	flyweight<string> first_name_;
+	flyweight<string> last_name_;
+
+	User2(const string& first_name, const string& last_name)
+		: first_name_(first_name),
+		  last_name_(last_name)
+	{
+	}
+};
