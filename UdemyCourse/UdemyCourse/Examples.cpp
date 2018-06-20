@@ -28,6 +28,7 @@
 #include "Neuron.h"
 #include "Creature.h"
 #include "CompositeExercise.h"
+#include "Shape_2.h"
 
 void examples::single_responsibility_run()
 {
@@ -333,5 +334,52 @@ void examples::composite_run()
 	mv.add(4);
 	mv.add(3);
 	cout << "Sum: " << sum({ &sv, &mv }) << endl;
+
+}
+
+void examples::decorator_run()
+{
+	using namespace Decorator;
+	Decorator::Circle circle{ 5 };
+	cout << circle.str() << endl;
+
+	ColoredShape red_circle{ circle, "red" };
+	// What if you want to resize the decorated circle instance
+	// You can not call shape_.resize() since it is not part of base class Shape. Also you can not make resize() virtual
+	// because maybe not all Shape's will be resizeable.
+	// This is only possible with typeid() operator or dynamic_cast since we have a reference to base class Shape. 
+	// This is the downside of decorator pattern
+	if (typeid(red_circle.shape_) == typeid(Decorator::Circle))
+	{
+		static_cast<Decorator::Circle &>(red_circle.shape_).resize(4.f);
+	}
+	cout << red_circle.str() << endl;
+
+	//OR
+	try
+	{
+		dynamic_cast<Decorator::Circle &>(red_circle.shape_).resize(0.5f);
+	} 
+	catch (std::bad_cast & e) {
+		cout << "[ERROR: " << e.what() << "]" << endl;
+	}
+	cout << red_circle.str() << endl;
+
+	Decorator::Square square{ 3 };
+	ColoredShape red_square{ square, "green" };
+	try
+	{
+		// Bad cast will throw resize not possible shape_ is not a Circle it is a Square
+		dynamic_cast<Decorator::Circle &>(red_square.shape_).resize(5.f);
+	}
+	catch (std::bad_cast & e) {
+		cout << "[ERROR: " << e.what() << "]" << endl;
+	}
+	cout << red_square.str() << endl;
+
+
+	// We can decorate an already decorated obj like a colored shape
+	TransparentShape transparent_circle{ red_circle, 55 };
+	cout << transparent_circle.str() << endl;
 
 }

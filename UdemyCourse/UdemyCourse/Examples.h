@@ -34,4 +34,7 @@ public:
 
 	// Composite pattern
 	static void composite_run();
+
+	// Decorator pattern
+	static void decorator_run();
 };
