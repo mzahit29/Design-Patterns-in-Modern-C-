@@ -156,6 +156,7 @@
     <ClInclude Include="DrinkFactoryMap.h" />
     <ClInclude Include="EmployeeFactory.h" />
     <ClInclude Include="Filter.h" />
+    <ClInclude Include="Functional_Decorator.h" />
     <ClInclude Include="GraphicObject.h" />
     <ClInclude Include="HotDrink.h" />
     <ClInclude Include="HotDrinkFactory.h" />

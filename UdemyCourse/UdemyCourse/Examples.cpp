@@ -30,6 +30,7 @@
 #include "CompositeExercise.h"
 #include "Shape_2.h"
 #include "Shape_Static_Decorator.h"
+#include "Functional_Decorator.h"
 
 void examples::single_responsibility_run()
 {
@@ -399,5 +400,35 @@ void examples::decorator_run()
 	TransparentShape2<ColoredShape2<Decorator::Circle>> transparent_circle2{ 42.f, "green", 4 };
 	transparent_circle2.resize(4);  // You can again resize transparent_circle2 because it is a Circle, it inherited from Circle
 	cout << transparent_circle2.str() << endl;
+
+
+
+
+	// Functional decorator
+	cout << "\n\n" << "FUNCTIONAL DECORATOR" << "___________________________" << endl;
+	// We are giving the function<void()> parameter as a lamdba function that takes no parameters and returns void
+	Decorator::Logger logger{ []() {cout << "Hello from Logger function object" << endl; }, "Hello function" };
+	logger();
+
+	// The following won't work because you haven't provided the template argument
+	// Logger2{ []() {cout << "Hello from Logger2 function object" << endl;}, "Hello Func" }();
+	// Now we provide the template argument which is function<void()>
+	Logger2<function<void()>>{ []() {cout << "Hello from Logger2 function object" << endl; }, "Hello Func" }();
+
+	// Instead of having to provide the template argument we could write a function so that compiler can infer the type
+	auto log = make_logger2([]() {cout << "Hello from Logger2 function object created via make_logger" << endl; }, "Hello func");
+	log();
+
+
+
+
+
+	// Logger that takes a function which takes parameters and returns a value
+	Logger3<double(double, double)> logger3{ add, "add" };
+	logger3(3.0, 5.0);
+
+	// Or you could use the make_logger3 to create the Logger3 instance without having to specify the template arguments
+	auto logger3_ = make_logger3(add, "add");
+	logger3(4, 8);
 
 }
