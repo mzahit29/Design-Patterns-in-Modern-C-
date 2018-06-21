@@ -40,4 +40,7 @@ public:
 
 	// Flyweight pattern
 	static void flyweight_run();
+
+	// Proxy pattern
+	static void proxy_run();
 };

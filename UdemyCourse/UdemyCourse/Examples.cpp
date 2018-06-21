@@ -32,6 +32,7 @@
 #include "Shape_Static_Decorator.h"
 #include "Functional_Decorator.h"
 #include "User.h"
+#include "PropertyProxy.h"
 
 void examples::single_responsibility_run()
 {
@@ -453,4 +454,13 @@ void examples::flyweight_run()
 	cout << (u3.first_name_.get() == u4.first_name_.get()) << endl;
 	// u3 and u4 last_name_ refer to the same flyweight object
 	cout << (u3.last_name_.get() == u4.last_name_.get()) << endl;
+}
+
+void examples::proxy_run()
+{
+	cout << "\n\n" << "PROXY PATTERN" << "___________________________" << endl;
+	cout << "\n\n" << "PROPERTY PROXY" << "___________________________" << endl;
+	Proxy::Creature c{ 10, 20 };
+	c.strength_ = 15;	// Invokes Property class operator==
+	cout << c << endl;
 }

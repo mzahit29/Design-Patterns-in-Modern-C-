@@ -58,6 +58,9 @@
     <Filter Include="Header Files\Flyweight Pattern">
       <UniqueIdentifier>{82d96bcf-9bb0-4e36-88a4-c2d9a041586a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Proxy Pattern">
+      <UniqueIdentifier>{eac107c9-30fa-41a2-9715-de2449efde2c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -143,6 +146,9 @@
     </ClInclude>
     <ClInclude Include="User.h">
       <Filter>Header Files\Flyweight Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyProxy.h">
+      <Filter>Header Files\Proxy Pattern</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -165,6 +165,7 @@
     <ClInclude Include="Neuron.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="PropertyProxy.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Shape_2.h" />
