@@ -150,6 +150,9 @@
     <ClInclude Include="PropertyProxy.h">
       <Filter>Header Files\Proxy Pattern</Filter>
     </ClInclude>
+    <ClInclude Include="VirtualProxy.h">
+      <Filter>Header Files\Proxy Pattern</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -33,6 +33,7 @@
 #include "Functional_Decorator.h"
 #include "User.h"
 #include "PropertyProxy.h"
+#include "VirtualProxy.h"
 
 void examples::single_responsibility_run()
 {
@@ -415,9 +416,10 @@ void examples::decorator_run()
 	// The following won't work because you haven't provided the template argument
 	// Logger2{ []() {cout << "Hello from Logger2 function object" << endl;}, "Hello Func" }();
 	// Now we provide the template argument which is function<void()>
-	Logger2<function<void()>>{ []() {cout << "Hello from Logger2 function object" << endl; }, "Hello Func" }();
+	Logger2<function<void()>>{ []() {cout << "Hello from Logger2 function object" << endl; }, "Hello Func" }(); // Note that we invoke operator() on this r-value.
 
-	// Instead of having to provide the template argument we could write a function so that compiler can infer the type
+	// Instead of having to provide the template argument we could write a function which itself provides the template argument inside
+	// its body
 	auto log = make_logger2([]() {cout << "Hello from Logger2 function object created via make_logger" << endl; }, "Hello func");
 	log();
 
@@ -463,4 +465,16 @@ void examples::proxy_run()
 	Proxy::Creature c{ 10, 20 };
 	c.strength_ = 15;	// Invokes Property class operator==
 	cout << c << endl;
+
+
+	cout << "\n\n" << "VIRTUAL PROXY" << "___________________________" << endl;
+	Bitmap pikachu("pikachu_image.png");
+	pikachu.draw();
+
+	// VirtualBitmap will only store the filename on construction. Inside draw() method it will create a Bitmap object on heap
+	// and call its draw. Therefore we will have accomplished lazy loading
+	VirtualBitmap pikachu2("pikachu_image.png");
+	Decorator::Logger logged_draw{ [&pikachu2]() { pikachu2.draw(); }, "draw()" }; // Using function decorator for fun
+	logged_draw();
+
 }

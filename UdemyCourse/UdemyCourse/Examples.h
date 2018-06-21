@@ -43,4 +43,5 @@ public:
 
 	// Proxy pattern
 	static void proxy_run();
+
 };
