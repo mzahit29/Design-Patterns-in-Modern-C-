@@ -34,6 +34,7 @@
 #include "User.h"
 #include "PropertyProxy.h"
 #include "VirtualProxy.h"
+#include "ChainOfResponsbility.h"
 
 void examples::single_responsibility_run()
 {
@@ -476,5 +477,31 @@ void examples::proxy_run()
 	VirtualBitmap pikachu2("pikachu_image.png");
 	Decorator::Logger logged_draw{ [&pikachu2]() { pikachu2.draw(); }, "draw()" }; // Using function decorator for fun
 	logged_draw();
+
+}
+
+void examples::chain_of_responsbility_run()
+{
+	using namespace ChainOfResp;
+	ChainOfResp::Creature elf{ 8, 4, 40 };
+
+	// Create the creature modifiers
+	CreatureModifier root{ elf };
+	DoubleAttackModifier dbl{ elf };
+	RageModifier rage{ elf };
+	NegateSpells negate{ elf };
+
+	// Link the creature modifiers, thereby creating a chain
+	root.add_modifier(&dbl);
+	root.add_modifier(&rage);
+	// Start the chain reaction
+	root.handle();
+	cout << elf << endl;
+	
+	root.add_modifier_beg(&negate);
+	DoubleAttackModifier dbl2{ elf };
+	root.add_modifier(&dbl2);  // This double attack modifier will not be applied because negate modifier doesn't propagate the handle call
+	root.handle();
+	cout << elf << endl;
 
 }

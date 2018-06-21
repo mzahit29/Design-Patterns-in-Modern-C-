@@ -44,4 +44,7 @@ public:
 	// Proxy pattern
 	static void proxy_run();
 
+	// Chain of responsibility pattern
+	static void chain_of_responsbility_run();
+
 };
