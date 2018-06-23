@@ -8,10 +8,10 @@ namespace Decorator
 {
 	class Logger
 	{
-		function<void()> func_;
+		std::function<void()> func_;
 		string name_;
 	public:
-		Logger(const function<void()> &func, const string& name) : func_(func), name_(name) {}
+		Logger(const std::function<void()> &func, const string& name) : func_(func), name_(name) {}
 
 		void operator()()
 		{

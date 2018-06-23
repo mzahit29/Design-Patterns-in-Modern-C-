@@ -159,6 +159,9 @@
     <ClInclude Include="ChainOfResponsbility.h">
       <Filter>Header Files\Chain of Responsibility</Filter>
     </ClInclude>
+    <ClInclude Include="BrokerChain.h">
+      <Filter>Header Files\Chain of Responsibility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

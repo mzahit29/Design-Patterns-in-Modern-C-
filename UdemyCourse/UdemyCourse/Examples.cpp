@@ -35,6 +35,7 @@
 #include "PropertyProxy.h"
 #include "VirtualProxy.h"
 #include "ChainOfResponsbility.h"
+#include "BrokerChain.h"
 
 void examples::single_responsibility_run()
 {
@@ -417,7 +418,7 @@ void examples::decorator_run()
 	// The following won't work because you haven't provided the template argument
 	// Logger2{ []() {cout << "Hello from Logger2 function object" << endl;}, "Hello Func" }();
 	// Now we provide the template argument which is function<void()>
-	Logger2<function<void()>>{ []() {cout << "Hello from Logger2 function object" << endl; }, "Hello Func" }(); // Note that we invoke operator() on this r-value.
+	Logger2<std::function<void()>>{ []() {cout << "Hello from Logger2 function object" << endl; }, "Hello Func" }(); // Note that we invoke operator() on this r-value.
 
 	// Instead of having to provide the template argument we could write a function which itself provides the template argument inside
 	// its body
@@ -482,6 +483,8 @@ void examples::proxy_run()
 
 void examples::chain_of_responsbility_run()
 {
+	cout << "\n\n" << "CHAIN OF RESPONSIBILITY PATTERN" << "___________________________" << endl;
+	cout << "\n\n" << "POINTER CHAIN" << "___________________________" << endl;
 	using namespace ChainOfResp;
 	ChainOfResp::Creature elf{ 8, 4, 40 };
 
@@ -503,5 +506,40 @@ void examples::chain_of_responsbility_run()
 	root.add_modifier(&dbl2);  // This double attack modifier will not be applied because negate modifier doesn't propagate the handle call
 	root.handle();
 	cout << elf << endl;
+
+
+	
+
+
+
+	cout << "\n\n" << "BROKER CHAIN" << "___________________________" << endl;
+	BrokerChain::Game magic_game;
+	BrokerChain::Creature red_goblin{ magic_game, 2, 2, "red_goblin" };
+	cout << red_goblin << endl;
+
+	BrokerChain::DoubleAttackModifier dam{ magic_game, red_goblin };
+	cout << red_goblin << endl;
+
+	// Now create any other creature with the name "red_goblin", tricking the queries_
+	BrokerChain::Creature green_goblin{ magic_game, 3, 3, "red_goblin" }; // Note cheating as a red_goblin
+	cout << green_goblin << endl;
+
+	{
+		// All the modifiers in the list are applied in the order they are added. Like in the pointer chain example
+		// Therefore the plus 10 life is first applied then plus 10 life is applied again then black_hole is applied
+		// making the resulting cumulative life 0 for all creatures that are assigned to magic_game that ask what their life
+		// is using magic_game.queries_(Query{name_, Query::Argument::life, life_}).
+		BrokerChain::AllCreaturesLifeBonusPlus10 plus_10_life{ magic_game };
+		BrokerChain::AllCreaturesLifeBonusPlus10 plus_10_life_again{ magic_game };
+		BrokerChain::AllCreaturesDie black_hole{ magic_game };
+
+		cout << "Goblins are dead in this scope\n" << green_goblin << endl;
+	}
+
+	// When the above scope is finished, the modifiers are destructed. Which means they are disconnected from game.queries_
+	// So they are no longer in effect.
+	cout << "Goblins are back alive\n" << green_goblin << endl;
+
+
 
 }
