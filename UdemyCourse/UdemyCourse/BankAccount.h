@@ -52,9 +52,9 @@ public:
 
 class BankAccountCommand : public Command
 {
-	BankAccount& ba_;
-	float amount_;
 public:
+	BankAccount & ba_;
+	float amount_;
 	enum Action { withdraw, deposit } action_;
 
 	BankAccountCommand(BankAccount& ba, Action action, float amount)
@@ -93,4 +93,81 @@ public:
 			break;
 		}
 	}
+};
+
+// Using composite pattern (using same API i.e. call() and undo())
+class CompositeBankAccountCommand : public vector<BankAccountCommand>, Command
+{
+public:
+
+	CompositeBankAccountCommand(const initializer_list<BankAccountCommand>& items)
+		: vector<BankAccountCommand>(items)
+	{
+	}
+
+
+	void call() override
+	{
+		for (auto& item : *this)
+		{
+			item.call();
+		}
+	}
+
+	void undo() override
+	{
+		for (auto it = this->rbegin(); it != this->rend(); ++it)
+		{
+			it->undo();
+		}
+	}
+};
+
+
+class DependentCompositeCommand : public CompositeBankAccountCommand
+{
+public:
+
+	explicit DependentCompositeCommand(const initializer_list<BankAccountCommand>& items)
+		: CompositeBankAccountCommand(items)
+	{
+	}
+
+	void call() override
+	{
+		bool ok = true;
+
+		for (auto& cmd : *this)
+		{
+			if (ok)
+			{
+				cmd.call();
+				ok = cmd.succeded_;
+			}
+			else
+			{
+				cmd.succeded_ = false;
+			}
+		}
+	}
+
+};
+
+// Used to simulate money transfer, but it has a _bug_ If one operations fails the other should fail as well,
+// but it doesn't therefore to correct it instead of inheriting directly from CompositeBankAccountCommand inherit from
+// DependentCompositeCommand.
+class MoneyTransferCommand : public DependentCompositeCommand
+{
+public:
+
+	explicit MoneyTransferCommand(
+		BankAccount& from,
+		BankAccount& to,
+		float amount
+	) : DependentCompositeCommand(
+		{
+			BankAccountCommand{ from, BankAccountCommand::Action::withdraw, amount },
+			BankAccountCommand{ to, BankAccountCommand::Action::deposit, amount }
+		}
+	) {}
 };

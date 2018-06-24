@@ -561,7 +561,7 @@ void examples::command_run()
 	}
 
 	// Undoing the operations in reverse order
-	cout << "Undoing the operations____________" << endl;
+	cout << "\n\n" << "UNDO OPERATIONS" << "___________________________" << endl;
 	for (auto it = commands.rbegin(); it != commands.rend(); ++it)
 	{
 		it->undo();
@@ -577,4 +577,26 @@ void examples::command_run()
 	std::shared_ptr<Command> sp(new BankAccountCommand{ ba2, BankAccountCommand::Action::withdraw, 600 });
 	sp->call();
 	cout << ba2 << endl;
+
+
+
+	// COMPOSITE COMMAND (MACRO)
+	cout << "\n\n" << "COMPOSITE COMMAND (MACRO)" << "___________________________" << endl;
+	cout << "CompositeBankAccountCommand_______" << endl;
+	CompositeBankAccountCommand composite_bank_account_command{
+		BankAccountCommand{ba, BankAccountCommand::Action::deposit, 200 },
+		BankAccountCommand{ ba, BankAccountCommand::Action::withdraw, 1200 }
+	};
+	composite_bank_account_command.call();
+	cout << ba << endl;
+	composite_bank_account_command.undo();
+	cout << ba << endl;
+
+	cout << "\nMoneyTransferCommand_______" << endl;
+	BankAccount ZahitAcc{ 1000, -200 }, BetulAcc{ 5000, -500 };
+	MoneyTransferCommand mtrns{ ZahitAcc, BetulAcc, 5000 }; // This wont work as expected because ZahitAcc doesn't have enough balance to withdraw
+	mtrns.call();
+	cout << ZahitAcc << endl << BetulAcc << endl;
+	mtrns.undo();
+	cout << ZahitAcc << endl << BetulAcc << endl;
 }
