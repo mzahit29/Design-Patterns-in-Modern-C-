@@ -168,6 +168,7 @@
     <ClInclude Include="HotDrinkFactory.h" />
     <ClInclude Include="HtmlElement.h" />
     <ClInclude Include="HtmlBuilder.h" />
+    <ClInclude Include="Interpreter.h" />
     <ClInclude Include="Neuron.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Point.h" />

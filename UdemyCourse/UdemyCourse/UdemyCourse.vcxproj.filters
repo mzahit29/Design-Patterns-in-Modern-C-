@@ -67,6 +67,9 @@
     <Filter Include="Header Files\Command">
       <UniqueIdentifier>{d11faf68-aa03-4f88-9710-5a68735d0e90}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Interpreter Pattern">
+      <UniqueIdentifier>{e909073b-bc3f-4945-acba-d00ef4f7cfa9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -167,6 +170,9 @@
     </ClInclude>
     <ClInclude Include="BankAccount.h">
       <Filter>Header Files\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="Interpreter.h">
+      <Filter>Header Files\Interpreter Pattern</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

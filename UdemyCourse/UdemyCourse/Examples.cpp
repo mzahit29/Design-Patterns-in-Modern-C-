@@ -37,6 +37,7 @@
 #include "ChainOfResponsbility.h"
 #include "BrokerChain.h"
 #include "BankAccount.h"
+#include "Interpreter.h"
 
 void examples::single_responsibility_run()
 {
@@ -599,4 +600,14 @@ void examples::command_run()
 	cout << ZahitAcc << endl << BetulAcc << endl;
 	mtrns.undo();
 	cout << ZahitAcc << endl << BetulAcc << endl;
+}
+
+void examples::interpreter_run()
+{
+	string s = "(8+4)-(9-1)";
+	vector<Token> token_vector = lex(s);
+	for(auto & t : token_vector)
+	{
+		cout << t << " ";
+	}
 }

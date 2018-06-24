@@ -50,4 +50,7 @@ public:
 	// Command pattern
 	static void command_run();
 
+	// Interpreter pattern
+	static void interpreter_run();
+
 };
