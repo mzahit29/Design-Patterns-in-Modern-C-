@@ -23,14 +23,16 @@ public:
 			<< "Account balance : " << balance_ << endl;
 	}
 	
-	void withdraw(float f)
+	bool withdraw(float f)
 	{
 		if ((balance_- f) > minimum_balance_)
 		{
-		balance_ -= f;
-		cout << "Withdrew : " << f << " TL "
-			<< "Account balance : " << balance_ << endl;			
+			balance_ -= f;
+			cout << "Withdrew : " << f << " TL "
+				<< "Account balance : " << balance_ << endl;
+			return true;
 		}
+		return false;
 	}
 
 
@@ -43,32 +45,51 @@ public:
 class Command
 {
 public:
-	virtual void call() const = 0;
+	bool succeded_;
+	virtual void call() = 0;
+	virtual void undo() = 0;
 };
 
 class BankAccountCommand : public Command
 {
 	BankAccount& ba_;
-	float amount;
+	float amount_;
 public:
 	enum Action { withdraw, deposit } action_;
 
 	BankAccountCommand(BankAccount& ba, Action action, float amount)
 		: ba_(ba),
 		  action_(action),
-		  amount(amount)
+		  amount_(amount)
 	{
+		succeded_ = false;
 	}
 
-	void call() const override
+	void call() override
 	{
 		switch (action_)
 		{
 		case withdraw:
-			ba_.withdraw(amount);
+			succeded_ = ba_.withdraw(amount_);
 			break;
 		case deposit:
-			ba_.deposit(amount);
+			ba_.deposit(amount_);
+			succeded_ = true;
+			break;
+		}
+	}
+
+	void undo() override
+	{
+		if (!succeded_) return;
+
+		switch(action_)
+		{
+		case BankAccountCommand::Action::withdraw:
+			ba_.deposit(amount_);
+			break;
+		case BankAccountCommand::Action::deposit:
+			ba_.withdraw(amount_);
 			break;
 		}
 	}

@@ -554,11 +554,18 @@ void examples::command_run()
 		BankAccountCommand{ba, BankAccountCommand::Action::withdraw, 800}
 	};
 
+	cout << "Calling the operations____________" << endl;
 	for (Command& command : commands)
 	{
 		command.call();
 	}
-	cout << ba << endl;
+
+	// Undoing the operations in reverse order
+	cout << "Undoing the operations____________" << endl;
+	for (auto it = commands.rbegin(); it != commands.rend(); ++it)
+	{
+		it->undo();
+	}
 
 	BankAccount ba2{ 1000.f, -200.f };
 	cout << ba2 << endl;
