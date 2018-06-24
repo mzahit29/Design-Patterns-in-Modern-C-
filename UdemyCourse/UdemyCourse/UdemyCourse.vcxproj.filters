@@ -64,6 +64,9 @@
     <Filter Include="Header Files\Chain of Responsibility">
       <UniqueIdentifier>{0226d773-09a8-4d4b-86b3-0384e0bbfe09}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Command">
+      <UniqueIdentifier>{d11faf68-aa03-4f88-9710-5a68735d0e90}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -161,6 +164,9 @@
     </ClInclude>
     <ClInclude Include="BrokerChain.h">
       <Filter>Header Files\Chain of Responsibility</Filter>
+    </ClInclude>
+    <ClInclude Include="BankAccount.h">
+      <Filter>Header Files\Command</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -36,6 +36,7 @@
 #include "VirtualProxy.h"
 #include "ChainOfResponsbility.h"
 #include "BrokerChain.h"
+#include "BankAccount.h"
 
 void examples::single_responsibility_run()
 {
@@ -542,4 +543,31 @@ void examples::chain_of_responsbility_run()
 
 
 
+}
+
+void examples::command_run()
+{
+	cout << "\n\n" << "COMMAND PATTERN" << "___________________________" << endl;
+	BankAccount ba{ 1000.f, -200.f };
+	vector<BankAccountCommand> commands {
+		BankAccountCommand{ba, BankAccountCommand::Action::deposit, 200},
+		BankAccountCommand{ba, BankAccountCommand::Action::withdraw, 800}
+	};
+
+	for (Command& command : commands)
+	{
+		command.call();
+	}
+	cout << ba << endl;
+
+	BankAccount ba2{ 1000.f, -200.f };
+	cout << ba2 << endl;
+
+	unique_ptr<Command> up{ new BankAccountCommand{ ba2, BankAccountCommand::Action::deposit, 200 } };
+	up->call();
+	cout << ba2 << endl;
+
+	std::shared_ptr<Command> sp(new BankAccountCommand{ ba2, BankAccountCommand::Action::withdraw, 600 });
+	sp->call();
+	cout << ba2 << endl;
 }

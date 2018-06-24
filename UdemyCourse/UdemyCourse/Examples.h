@@ -47,4 +47,7 @@ public:
 	// Chain of responsibility pattern
 	static void chain_of_responsbility_run();
 
+	// Command pattern
+	static void command_run();
+
 };

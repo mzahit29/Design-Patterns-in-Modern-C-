@@ -153,6 +153,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BankAccount.h" />
     <ClInclude Include="BrokerChain.h" />
     <ClInclude Include="ChainOfResponsbility.h" />
     <ClInclude Include="CompositeExercise.h" />
