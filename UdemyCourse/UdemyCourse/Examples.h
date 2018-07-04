@@ -55,4 +55,8 @@ public:
 
 	// Mediator pattern
 	static void mediator_run();
+
+	// Memento pattern
+	static void memento_run();
+
 };

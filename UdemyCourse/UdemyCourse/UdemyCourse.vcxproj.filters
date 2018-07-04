@@ -76,6 +76,9 @@
     <Filter Include="Source Files\Mediator">
       <UniqueIdentifier>{29092a6b-e4ea-4845-b0fb-ba383943a7b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Memento">
+      <UniqueIdentifier>{3985b4e0-c6c7-4343-bd30-411c8154793d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -188,6 +191,9 @@
     </ClInclude>
     <ClInclude Include="EventBroker.h">
       <Filter>Header Files\Mediator</Filter>
+    </ClInclude>
+    <ClInclude Include="Memento.h">
+      <Filter>Header Files\Memento</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

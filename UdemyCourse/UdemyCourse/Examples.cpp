@@ -41,6 +41,7 @@
 #include "Personnn.h"
 #include "ChatRoom.h"
 #include "EventBroker.h"
+#include "Memento.h"
 
 void examples::single_responsibility_run()
 {
@@ -652,4 +653,21 @@ void examples::mediator_run()
 	john.score();
 
 
+}
+
+void examples::memento_run()
+{
+	cout << "\n\n" << "MEMENTO PATTERN" << "___________________________" << endl;
+
+	Memento::BankAccount ba{ 100 };
+	Memento::Memento m1 = ba.deposit(44);
+	cout << ba;
+	auto m2 = ba.deposit(16);
+	cout << ba;
+
+	ba.restore(m1);
+	cout << "Bank account restored to m1: " << ba;
+
+	ba.restore(m2);
+	cout << "Bank account restored to m2: " << ba;
 }
