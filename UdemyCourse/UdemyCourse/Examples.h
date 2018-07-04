@@ -53,4 +53,6 @@ public:
 	// Interpreter pattern
 	static void interpreter_run();
 
+	// Mediator pattern
+	static void mediator_run();
 };

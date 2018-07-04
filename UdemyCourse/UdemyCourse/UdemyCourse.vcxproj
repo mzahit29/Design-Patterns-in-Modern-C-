@@ -156,6 +156,7 @@
     <ClInclude Include="BankAccount.h" />
     <ClInclude Include="BrokerChain.h" />
     <ClInclude Include="ChainOfResponsbility.h" />
+    <ClInclude Include="ChatRoom.h" />
     <ClInclude Include="CompositeExercise.h" />
     <ClInclude Include="Contact.h" />
     <ClInclude Include="Creature.h" />
@@ -169,6 +170,7 @@
     <ClInclude Include="HtmlElement.h" />
     <ClInclude Include="HtmlBuilder.h" />
     <ClInclude Include="Interpreter.h" />
+    <ClInclude Include="Personnn.h" />
     <ClInclude Include="Neuron.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Point.h" />
@@ -189,10 +191,12 @@
     <ClInclude Include="VirtualProxy.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ChatRoom.cpp" />
     <ClCompile Include="Configurations.cpp" />
     <ClCompile Include="Examples.cpp" />
     <ClCompile Include="Examples.h" />
     <ClCompile Include="HtmlElement.cpp" />
+    <ClCompile Include="Personnn.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

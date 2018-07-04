@@ -70,6 +70,12 @@
     <Filter Include="Header Files\Interpreter Pattern">
       <UniqueIdentifier>{e909073b-bc3f-4945-acba-d00ef4f7cfa9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Mediator">
+      <UniqueIdentifier>{99ccea07-bff5-458c-9af2-7a5f493b6038}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Mediator">
+      <UniqueIdentifier>{29092a6b-e4ea-4845-b0fb-ba383943a7b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -174,6 +180,12 @@
     <ClInclude Include="Interpreter.h">
       <Filter>Header Files\Interpreter Pattern</Filter>
     </ClInclude>
+    <ClInclude Include="ChatRoom.h">
+      <Filter>Header Files\Mediator</Filter>
+    </ClInclude>
+    <ClInclude Include="Personnn.h">
+      <Filter>Header Files\Mediator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -196,6 +208,12 @@
     </ClCompile>
     <ClCompile Include="Person.cpp">
       <Filter>Source Files\Pimpl Idiom</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatRoom.cpp">
+      <Filter>Source Files\Mediator</Filter>
+    </ClCompile>
+    <ClCompile Include="Personnn.cpp">
+      <Filter>Source Files\Mediator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

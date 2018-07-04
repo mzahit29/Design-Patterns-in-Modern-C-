@@ -38,6 +38,8 @@
 #include "BrokerChain.h"
 #include "BankAccount.h"
 #include "Interpreter.h"
+#include "Personnn.h"
+#include "ChatRoom.h"
 
 void examples::single_responsibility_run()
 {
@@ -609,5 +611,31 @@ void examples::interpreter_run()
 	for(auto & t : token_vector)
 	{
 		cout << t << " ";
+	}
+}
+
+void examples::mediator_run()
+{
+	vector<unique_ptr<person>> people;
+	people.push_back(unique_ptr<person>(new person("Zahit")));
+	people.push_back(unique_ptr<person>(new person("Betül")));
+	people.push_back(unique_ptr<person>(new person("Erdem")));
+
+	chat_room room;
+	for (auto & person : people)
+	{
+		room.enter(*person);
+	}
+	people[0]->say("Hello, everybody how is it going?");
+
+	for (auto & person : people)
+	{
+		cout << *person;
+	}
+
+	people[1]->pm("Zahit", "I love you");
+	for (auto & person : people)
+	{
+		cout << *person;
 	}
 }
