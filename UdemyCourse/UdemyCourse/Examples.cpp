@@ -40,6 +40,7 @@
 #include "Interpreter.h"
 #include "Personnn.h"
 #include "ChatRoom.h"
+#include "EventBroker.h"
 
 void examples::single_responsibility_run()
 {
@@ -616,6 +617,8 @@ void examples::interpreter_run()
 
 void examples::mediator_run()
 {
+	cout << "\n\n" << "MEDIATOR PATTERN" << "___________________________" << endl;
+	cout << "\n\n" << "CHATROOM" << "___________________________" << endl;
 	vector<unique_ptr<person>> people;
 	people.push_back(unique_ptr<person>(new person("Zahit")));
 	people.push_back(unique_ptr<person>(new person("Betül")));
@@ -638,4 +641,15 @@ void examples::mediator_run()
 	{
 		cout << *person;
 	}
+
+
+
+	cout << "\n\n" << "GAME MEDIATOR" << "___________________________" << endl;
+	Mediator::Game football_game;
+	Player john{ "john", football_game };
+	Coach coach{ football_game };
+
+	john.score();
+
+
 }

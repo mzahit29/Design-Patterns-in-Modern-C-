@@ -186,6 +186,9 @@
     <ClInclude Include="Personnn.h">
       <Filter>Header Files\Mediator</Filter>
     </ClInclude>
+    <ClInclude Include="EventBroker.h">
+      <Filter>Header Files\Mediator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

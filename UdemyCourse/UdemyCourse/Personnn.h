@@ -19,7 +19,6 @@ public:
 		: name_(name)
 	{
 	}
-	~person() { cout << "~person()" << endl; }
 
 	void say(const string & msg) const;
 	void pm(const string & who, const string & msg) const;

@@ -162,6 +162,7 @@
     <ClInclude Include="Creature.h" />
     <ClInclude Include="DrinkFactoryMap.h" />
     <ClInclude Include="EmployeeFactory.h" />
+    <ClInclude Include="EventBroker.h" />
     <ClInclude Include="Filter.h" />
     <ClInclude Include="Functional_Decorator.h" />
     <ClInclude Include="GraphicObject.h" />
