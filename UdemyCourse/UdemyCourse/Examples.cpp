@@ -659,15 +659,44 @@ void examples::memento_run()
 {
 	cout << "\n\n" << "MEMENTO PATTERN" << "___________________________" << endl;
 
-	Memento::BankAccount ba{ 100 };
-	Memento::Memento m1 = ba.deposit(44);
+	cout << "\n\n" << "PRIMITIVE MEMENTO" << "___________________________" << endl;
+	using MementoNS::BankAccount;
+	using MementoNS::Memento;
+	BankAccount ba{ 100 };
+	Memento m_1 = ba.deposit(44);
 	cout << ba;
-	auto m2 = ba.deposit(16);
+	auto m_2 = ba.deposit(16);
 	cout << ba;
 
-	ba.restore(m1);
+	ba.restore(m_1);
 	cout << "Bank account restored to m1: " << ba;
 
-	ba.restore(m2);
+	ba.restore(m_2);
 	cout << "Bank account restored to m2: " << ba;
+
+
+
+	cout << "\n\n" << "MEMENTO VECTOR INSIDE BANKACCOUNT" << "___________________________" << endl;
+	using MementoNS::BankAccount2;
+
+	BankAccount2 ba2{ 50 };
+	auto m1 = ba2.deposit(40);
+	cout << "Deposit: " << ba2;
+	auto m2 = ba2.deposit(60);
+	cout << "Deposit: " << ba2;
+	auto m3 = ba2.redo(); // This should do nothing we are already at the end
+	cout << "Redo: " << ba2;
+	auto m4 = ba2.undo();
+	cout << "Undo: " << ba2;
+	auto m5 = ba2.redo();
+	cout << "Redo: " << ba2;
+	auto m6 = ba2.deposit(29);
+	cout << "Deposit: " << ba2;
+
+	ba2.restore(m3);  // This will do nothing since m3 an empty shared_ptr<Memento> and 
+					// we have an if(m) check in restore, which returns false for empty shared_ptr
+	ba2.restore(m1);
+	cout << "Restore: " << ba2;
+	ba2.restore(m6);
+	cout << "Restore: " << ba2;
 }
