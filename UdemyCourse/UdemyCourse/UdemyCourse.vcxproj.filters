@@ -79,6 +79,9 @@
     <Filter Include="Header Files\Memento">
       <UniqueIdentifier>{3985b4e0-c6c7-4343-bd30-411c8154793d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Observer">
+      <UniqueIdentifier>{082cb3ac-86fe-4065-9524-0163e33b87e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -194,6 +197,15 @@
     </ClInclude>
     <ClInclude Include="Memento.h">
       <Filter>Header Files\Memento</Filter>
+    </ClInclude>
+    <ClInclude Include="PersonObs.h">
+      <Filter>Header Files\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Header Files\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="Observable.h">
+      <Filter>Header Files\Observer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

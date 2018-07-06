@@ -59,4 +59,7 @@ public:
 	// Memento pattern
 	static void memento_run();
 
+	// Observer pattern
+	static void observer_run();
+
 };

@@ -42,6 +42,7 @@
 #include "ChatRoom.h"
 #include "EventBroker.h"
 #include "Memento.h"
+#include "PersonObs.h"
 
 void examples::single_responsibility_run()
 {
@@ -699,4 +700,22 @@ void examples::memento_run()
 	cout << "Restore: " << ba2;
 	ba2.restore(m6);
 	cout << "Restore: " << ba2;
+}
+
+void examples::observer_run()
+{
+	cout << "\n\n" << "OBSERVER PATTERN" << "___________________________" << endl;
+	using ObserverNS::Person;
+	using ObserverNS::PersonObserver;
+
+
+	Person p{ 6 };
+	PersonObserver po;
+	p.subscribe(po);
+	p.set_age(7);
+	p.set_age(11);
+	p.unsubscribe(po);
+	p.set_age(22);  // this change won't be handled by po because it has unsubscribed from Person and therefore it is not notified.
+
+
 }
