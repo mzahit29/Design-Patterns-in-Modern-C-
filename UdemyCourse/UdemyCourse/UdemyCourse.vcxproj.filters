@@ -82,6 +82,12 @@
     <Filter Include="Header Files\Observer">
       <UniqueIdentifier>{082cb3ac-86fe-4065-9524-0163e33b87e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\State">
+      <UniqueIdentifier>{de19fde0-f1ea-425e-9ac0-90a93279341d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\State">
+      <UniqueIdentifier>{50243e6d-c5e2-43b2-a287-cc30effa0062}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -207,6 +213,9 @@
     <ClInclude Include="Observable.h">
       <Filter>Header Files\Observer</Filter>
     </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -235,6 +244,9 @@
     </ClCompile>
     <ClCompile Include="Personnn.cpp">
       <Filter>Source Files\Mediator</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Source Files\State</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

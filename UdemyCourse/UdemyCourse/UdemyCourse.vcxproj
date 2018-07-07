@@ -189,6 +189,7 @@
     <ClInclude Include="Journal.h" />
     <ClInclude Include="PersistenceManager.h" />
     <ClInclude Include="Product.h" />
+    <ClInclude Include="State.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Tag.h" />
     <ClInclude Include="targetver.h" />
@@ -203,6 +204,7 @@
     <ClCompile Include="HtmlElement.cpp" />
     <ClCompile Include="Personnn.cpp" />
     <ClCompile Include="Person.cpp" />
+    <ClCompile Include="State.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

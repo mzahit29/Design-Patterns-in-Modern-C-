@@ -43,6 +43,7 @@
 #include "EventBroker.h"
 #include "Memento.h"
 #include "PersonObs.h"
+#include "State.h"
 
 void examples::single_responsibility_run()
 {
@@ -750,4 +751,17 @@ void examples::observer_run()
 	p3.set_age(44);
 	p3.unsubscribe(po3);
 
+}
+
+void examples::state_run()
+{
+	cout << "\n\n" << "STATE PATTERN" << "___________________________" << endl;
+	cout << "\n\n" << "CLASSIC IMPLEMENTATION" << "___________________________" << endl;
+
+	LightSwitch ls;
+	ls.off();  // Already off so this will print "already off" which is on base class since OffState doesn't implement off() method.
+	ls.on();  // OffState creates an OnState object, binds ls's state_ to OnState object and deletes itself.
+	ls.on();  // Already on so this will print "already on" which is on base class since OnState doesn't implement on() method.
+	ls.off();
+	ls.on();
 }

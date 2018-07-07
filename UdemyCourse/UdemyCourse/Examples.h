@@ -62,4 +62,6 @@ public:
 	// Observer pattern
 	static void observer_run();
 
+	// State pattern
+	static void state_run();
 };
