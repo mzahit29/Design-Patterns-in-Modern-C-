@@ -828,7 +828,7 @@ void examples::state_run()
 void examples::strategy_run()
 {
 	cout << "\n\n" << "STRATEGY PATTERN" << "___________________________" << endl;
-	cout << "\n\n" << "STATIC STRATEGY" << "___________________________" << endl;
+	cout << "\n\n" << "DYNAMIC STRATEGY" << "___________________________" << endl;
 
 	TextProcessor tp;
 	tp.set_output_format(OutputFormat::html);
@@ -840,4 +840,19 @@ void examples::strategy_run()
 	tp.append_list({ "zahit", "betül", "merve" });
 	cout << tp.str() << endl;
 	tp.clear();
+
+
+
+	cout << "\n\n" << "STATIC STRATEGY" << "___________________________" << endl;
+
+	TextProcessor_Static<HtmlListStrategy> tp_html;
+	tp_html.append_list({ "football", "tennis", "basketball" });
+	cout << tp_html.str() << endl;
+	tp_html.clear();
+
+	TextProcessor_Static<MarkDownListStrategy> tp_mark_down;
+	tp_mark_down.append_list({ "kas", "didim", "turunc", "akyaka" });
+	cout << tp_mark_down.str() << endl;
+	tp_mark_down.clear();
+
 }

@@ -43,6 +43,7 @@ struct HtmlListStrategy : ListStrategy
 	}
 };
 
+// Dynamic strategy: You can set the list_strategy_ on run time
 class TextProcessor
 {
 	ostringstream oss;
@@ -74,6 +75,37 @@ public:
 			list_strategy_->start(oss);
 			list_strategy_->add_item(oss, item);
 			list_strategy_->end(oss);
+		}
+	}
+
+	string str()
+	{
+		return oss.str();
+	}
+};
+
+
+
+// Static strategy: You can NOT set the list_strategy_ on run time, it is set by template parameter statically
+template <typename LS>
+class TextProcessor_Static
+{
+	ostringstream oss;
+	LS list_strategy_;
+public:
+	void clear()
+	{
+		oss.str("");
+		oss.clear();
+	}
+
+	void append_list(const vector<string> & items)
+	{
+		for (auto & item : items)
+		{
+			list_strategy_.start(oss);
+			list_strategy_.add_item(oss, item);
+			list_strategy_.end(oss);
 		}
 	}
 
