@@ -726,13 +726,28 @@ void examples::observer_run()
 	// Subscribe to the signal with a lambda function, when age changes Person2WithBoostSignal instance will call signal's operator() to
 	// trigger all the functions that have connected to it. Lambda functions have to have the signature declared in the signal instance
 	// template parameter <void(T&, const string & field_name)>. Since our class is Person2WithBoostSignal::Observable2<Person2WithBoostSignal>
-	// T = Person2WithBoostSignal
-	p2.field_changed_.connect([](Person2WithBoostSignal& p, const string & field_name)
+	// T = Person2WithBoostSignal. Returns a connection object which can be later used to disconnect from the signal.
+	auto conn = p2.field_changed_.connect([](Person2WithBoostSignal& p, const string & field_name)
 	{
 		cout << field_name << " changed to " << p.age() << endl;
 	});
 
 	p2.set_age(30);
+	conn.disconnect();
+	p2.set_age(31);
+	
 
+
+
+	cout << "\n\n" << "ADDING A NEW PROPERTY (PROBLEM OF DEPENDENCIES)" << "___________________________" << endl;
+	// Now we have a can_vote property which we also want to be notified of
+	Person p3{ 99 };
+	PersonObserver po3;
+	p3.subscribe(po3);
+
+	p3.set_age(13);
+	p3.set_age(15);
+	p3.set_age(44);
+	p3.unsubscribe(po3);
 
 }

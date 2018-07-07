@@ -23,8 +23,18 @@ namespace ObserverNS
 		void set_age(int age)
 		{
 			if (this->age_ == age) return;
+			bool old_can_vote = get_can_vote();
 			this->age_ = age;
 			notify(*this, "age");
+			if (old_can_vote != get_can_vote())
+			{
+				notify(*this, "can_vote");
+			}
+		}
+
+		bool get_can_vote()
+		{
+			return age_ >= 18;
 		}
 	};
 
@@ -39,6 +49,10 @@ namespace ObserverNS
 			if (field_name == "age")
 			{
 				cout << "age value changed to : " << source.age_ << endl;
+			}
+			else if (field_name == "can_vote")
+			{
+				cout << "voting status has changed to : " << boolalpha << source.get_can_vote() << endl;
 			}
 		}
 	};
