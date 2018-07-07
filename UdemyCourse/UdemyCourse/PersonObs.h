@@ -42,6 +42,36 @@ namespace ObserverNS
 			}
 		}
 	};
+
+	template <typename T> 
+	class Observable2
+	{
+	public:
+		signal<void(T& source, const string & field_name)> field_changed_;
+	};
+
+	class Person2WithBoostSignal : public Observable2<Person2WithBoostSignal>
+	{
+		int age_;
+	public:
+
+		explicit Person2WithBoostSignal(int age)
+			: age_(age)
+		{
+		}
+
+		int age() const
+		{
+			return age_;
+		}
+
+		void set_age(int age)
+		{
+			if (age_ == age) return;
+			age_ = age;
+			field_changed_(*this, "age");
+		}
+	};
 }
 
 

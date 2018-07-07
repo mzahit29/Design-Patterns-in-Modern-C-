@@ -705,6 +705,7 @@ void examples::memento_run()
 void examples::observer_run()
 {
 	cout << "\n\n" << "OBSERVER PATTERN" << "___________________________" << endl;
+	cout << "\n\n" << "MANUAL IMPLEMENTATION" << "___________________________" << endl;
 	using ObserverNS::Person;
 	using ObserverNS::PersonObserver;
 
@@ -716,6 +717,22 @@ void examples::observer_run()
 	p.set_age(11);
 	p.unsubscribe(po);
 	p.set_age(22);  // this change won't be handled by po because it has unsubscribed from Person and therefore it is not notified.
+
+	cout << "\n\n" << "BOOST SIGNAL IMPLEMENTATION" << "___________________________" << endl;
+	using ObserverNS::Person2WithBoostSignal;
+
+	Person2WithBoostSignal p2{ 29 };
+
+	// Subscribe to the signal with a lambda function, when age changes Person2WithBoostSignal instance will call signal's operator() to
+	// trigger all the functions that have connected to it. Lambda functions have to have the signature declared in the signal instance
+	// template parameter <void(T&, const string & field_name)>. Since our class is Person2WithBoostSignal::Observable2<Person2WithBoostSignal>
+	// T = Person2WithBoostSignal
+	p2.field_changed_.connect([](Person2WithBoostSignal& p, const string & field_name)
+	{
+		cout << field_name << " changed to " << p.age() << endl;
+	});
+
+	p2.set_age(30);
 
 
 }
