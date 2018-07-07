@@ -44,6 +44,7 @@
 #include "Memento.h"
 #include "PersonObs.h"
 #include "State.h"
+#include "Phone.h"
 
 void examples::single_responsibility_run()
 {
@@ -764,4 +765,61 @@ void examples::state_run()
 	ls.on();  // Already on so this will print "already on" which is on base class since OnState doesn't implement on() method.
 	ls.off();
 	ls.on();
+
+
+	cout << "\n\n" << "PHONE STATE MACHINE" << "___________________________" << endl;
+	// Our state change rules
+
+	map<PhoneState, vector<pair<Trigger, PhoneState>>> rules;
+
+	typedef unsigned long long ull;
+	rules[PhoneState::off_hook] = {
+		{Trigger::call_dialed, PhoneState::connecting}, 
+		{Trigger::stop_using_phone, PhoneState::on_hook}
+	};
+	rules[PhoneState::connecting] = {
+		{Trigger::hung_up, PhoneState::on_hook},
+		{Trigger::call_connected, PhoneState::connected}
+	};
+	rules[PhoneState::connected] = {
+		{Trigger::hung_up, PhoneState::on_hook },
+		{Trigger::stop_using_phone, PhoneState::on_hook},
+	};
+	rules[PhoneState::on_hold] = {
+		{Trigger::left_message, PhoneState::on_hook},
+		{Trigger::hung_up, PhoneState::on_hook },
+	};
+	rules[PhoneState::on_hook] = {
+		{Trigger::taken_off_hold, PhoneState::off_hook}
+	};
+
+	PhoneState curr_state{ PhoneState::off_hook }, exit_state{PhoneState::on_hook};
+
+	while (true)
+	{
+		cout << "The phone is currently in " << curr_state << endl;
+	select_trigger:
+		cout << "Select a trigger" << endl;
+
+		int i{};
+		for (auto item : rules[curr_state])
+		{
+			cout << i++ << ". " << item.first << endl;
+		}
+
+		int input{};
+		cin >> input;
+		if (input < 0 || (input + 1) > rules[curr_state].size())
+		{
+			cout << "Incorrect option. Please try again" << endl;
+			goto select_trigger;
+		}
+
+		curr_state = rules[curr_state][input].second;
+		if (curr_state == exit_state) break;
+
+	}
+
+
+
 }
