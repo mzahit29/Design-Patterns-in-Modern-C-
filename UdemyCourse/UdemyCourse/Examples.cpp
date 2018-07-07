@@ -45,6 +45,7 @@
 #include "PersonObs.h"
 #include "State.h"
 #include "Phone.h"
+#include "Strategy.h"
 
 void examples::single_responsibility_run()
 {
@@ -822,4 +823,21 @@ void examples::state_run()
 
 
 
+}
+
+void examples::strategy_run()
+{
+	cout << "\n\n" << "STRATEGY PATTERN" << "___________________________" << endl;
+	cout << "\n\n" << "STATIC STRATEGY" << "___________________________" << endl;
+
+	TextProcessor tp;
+	tp.set_output_format(OutputFormat::html);
+	tp.append_list({ "zahit", "betül", "merve" });
+	cout << tp.str() << endl;
+	tp.clear();
+
+	tp.set_output_format(OutputFormat::markdown);
+	tp.append_list({ "zahit", "betül", "merve" });
+	cout << tp.str() << endl;
+	tp.clear();
 }

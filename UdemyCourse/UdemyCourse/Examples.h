@@ -64,4 +64,7 @@ public:
 
 	// State pattern
 	static void state_run();
+
+	// Strategy pattern
+	static void strategy_run();
 };

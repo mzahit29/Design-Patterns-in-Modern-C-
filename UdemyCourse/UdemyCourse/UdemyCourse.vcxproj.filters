@@ -219,6 +219,9 @@
     <ClInclude Include="Phone.h">
       <Filter>Header Files\State</Filter>
     </ClInclude>
+    <ClInclude Include="Strategy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
