@@ -70,4 +70,7 @@ public:
 
 	// Template method pattern
 	static void template_run();
+
+	// Visitor pattern
+	static void visitor_run();
 };

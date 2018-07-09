@@ -91,6 +91,9 @@
     <Filter Include="Header Files\Template Method">
       <UniqueIdentifier>{1e600a50-8aac-4639-905a-c5a8101f18b2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Visitor">
+      <UniqueIdentifier>{eef99965-2112-4dee-bfa6-a0e36ae79c50}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -227,6 +230,9 @@
     </ClInclude>
     <ClInclude Include="Template.h">
       <Filter>Header Files\Template Method</Filter>
+    </ClInclude>
+    <ClInclude Include="Visitor.h">
+      <Filter>Header Files\Visitor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

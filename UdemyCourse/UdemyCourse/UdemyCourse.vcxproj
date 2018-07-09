@@ -198,6 +198,7 @@
     <ClInclude Include="Template.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="VirtualProxy.h" />
+    <ClInclude Include="Visitor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ChatRoom.cpp" />

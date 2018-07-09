@@ -47,6 +47,7 @@
 #include "Phone.h"
 #include "Strategy.h"
 #include "Template.h"
+#include "Visitor.h"
 
 void examples::single_responsibility_run()
 {
@@ -860,6 +861,23 @@ void examples::strategy_run()
 
 void examples::template_run()
 {
+	cout << "\n\n" << "TEMPLATE METHOD" << "___________________________" << endl;
 	Chess chess;
 	chess.run();
+}
+
+void examples::visitor_run()
+{
+	cout << "\n\n" << "VISITOR PATTERN" << "___________________________" << endl;
+
+	AdditionExpression addition{ 
+		new DoubleExpression{4}, 
+		new AdditionExpression{
+			new DoubleExpression{7}, 
+			new DoubleExpression{3}
+		}
+	};
+	ostringstream oss;
+	addition.print(oss);
+	cout << oss.str() << endl;
 }
