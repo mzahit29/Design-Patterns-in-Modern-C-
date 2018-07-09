@@ -195,6 +195,7 @@
     <ClInclude Include="Strategy.h" />
     <ClInclude Include="Tag.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Template.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="VirtualProxy.h" />
   </ItemGroup>

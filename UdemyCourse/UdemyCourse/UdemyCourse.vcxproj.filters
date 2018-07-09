@@ -88,6 +88,9 @@
     <Filter Include="Source Files\State">
       <UniqueIdentifier>{50243e6d-c5e2-43b2-a287-cc30effa0062}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Template Method">
+      <UniqueIdentifier>{1e600a50-8aac-4639-905a-c5a8101f18b2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -221,6 +224,9 @@
     </ClInclude>
     <ClInclude Include="Strategy.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Template.h">
+      <Filter>Header Files\Template Method</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

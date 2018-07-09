@@ -67,4 +67,7 @@ public:
 
 	// Strategy pattern
 	static void strategy_run();
+
+	// Template method pattern
+	static void template_run();
 };

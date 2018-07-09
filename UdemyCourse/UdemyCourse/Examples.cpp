@@ -46,6 +46,7 @@
 #include "State.h"
 #include "Phone.h"
 #include "Strategy.h"
+#include "Template.h"
 
 void examples::single_responsibility_run()
 {
@@ -855,4 +856,10 @@ void examples::strategy_run()
 	cout << tp_mark_down.str() << endl;
 	tp_mark_down.clear();
 
+}
+
+void examples::template_run()
+{
+	Chess chess;
+	chess.run();
 }
