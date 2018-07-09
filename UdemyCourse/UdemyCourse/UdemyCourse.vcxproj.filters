@@ -234,6 +234,9 @@
     <ClInclude Include="Visitor.h">
       <Filter>Header Files\Visitor</Filter>
     </ClInclude>
+    <ClInclude Include="ExpressionPrinter.h">
+      <Filter>Header Files\Visitor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

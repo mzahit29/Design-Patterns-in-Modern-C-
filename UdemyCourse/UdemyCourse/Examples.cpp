@@ -48,6 +48,7 @@
 #include "Strategy.h"
 #include "Template.h"
 #include "Visitor.h"
+#include "ExpressionPrinter.h"
 
 void examples::single_responsibility_run()
 {
@@ -877,7 +878,26 @@ void examples::visitor_run()
 			new DoubleExpression{3}
 		}
 	};
-	ostringstream oss;
-	addition.print(oss);
-	cout << oss.str() << endl;
+
+	cout << "\n\n" << "INTRUSIVE VISITOR" << "___________________________" << endl;
+	// FIRST APPROACH is implementing print(..) method for all classes in the Expression hierarchy. Drawbacks are
+	// first this is intrusive, meaning you have to change the existing code for the Expression class breaking the OCP.
+	// It works but imagine you have 20 classes, you would have to go in each one and write a print(..) method.
+	// Second drawback is that it breaks the Single Responsibility principle: It is not Expression type classes'
+	// responsbility to print themselves. It should actually be done in a separate printer class.
+	//ostringstream oss;
+	//addition.print(oss);
+	//cout << oss.str() << endl;
+
+	cout << "\n\n" << "REFLECTIVE APPROACH" << "___________________________" << endl;
+	// SECOND APPROACH with ExpressionPrinter is better than the first approach. This satisfies the Single Responsibility 
+	// (Separation of Concerns), meaning it is not Expression objects' responsibility to print itself. So we have created a printer class.
+	// However the drawbacks in this ExpressionPrinter::print(..) is that you have to check for each type
+	// in the Expression hierarchy to find out what the Expression * is pointing to. 
+	// Assume that you have 20 classes in this hierarchy, your if - else if will be
+	// very long. Also it is very error prone because you might add a new class in this hierarchy and forget to 
+	// add the dynamic_cast check for the newly added class. Second drawback is the runtime overhead of the dynamic_cast
+	ExpressionPrinter ep;
+	ep.print(&addition);
+	cout << ep.str() << endl;
 }
