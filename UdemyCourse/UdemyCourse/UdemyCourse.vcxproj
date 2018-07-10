@@ -160,6 +160,8 @@
     <ClInclude Include="CompositeExercise.h" />
     <ClInclude Include="Contact.h" />
     <ClInclude Include="Creature.h" />
+    <ClInclude Include="ExpressionEvaluator.h" />
+    <ClInclude Include="ExpressionVisitor.h" />
     <ClInclude Include="DrinkFactoryMap.h" />
     <ClInclude Include="EmployeeFactory.h" />
     <ClInclude Include="EventBroker.h" />
@@ -204,6 +206,8 @@
   <ItemGroup>
     <ClCompile Include="ChatRoom.cpp" />
     <ClCompile Include="Configurations.cpp" />
+    <ClCompile Include="ExpressionEvaluator.cpp" />
+    <ClCompile Include="ExpressionVisitor.cpp" />
     <ClCompile Include="Examples.cpp" />
     <ClCompile Include="Examples.h" />
     <ClCompile Include="HtmlElement.cpp" />

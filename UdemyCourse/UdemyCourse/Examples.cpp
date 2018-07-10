@@ -49,6 +49,8 @@
 #include "Template.h"
 #include "Visitor.h"
 #include "ExpressionPrinter.h"
+#include "ExpressionVisitor.h"
+#include "ExpressionEvaluator.h"
 
 void examples::single_responsibility_run()
 {
@@ -871,7 +873,7 @@ void examples::visitor_run()
 {
 	cout << "\n\n" << "VISITOR PATTERN" << "___________________________" << endl;
 
-	AdditionExpression addition{ 
+	AdditionExpression addition_expression{ 
 		new DoubleExpression{4}, 
 		new AdditionExpression{
 			new DoubleExpression{7}, 
@@ -898,6 +900,15 @@ void examples::visitor_run()
 	// very long. Also it is very error prone because you might add a new class in this hierarchy and forget to 
 	// add the dynamic_cast check for the newly added class. Second drawback is the runtime overhead of the dynamic_cast
 	ExpressionPrinter ep;
-	ep.print(&addition);
+	ep.print(&addition_expression);
 	cout << ep.str() << endl;
+
+	cout << "\n\n" << "DOUBLE DISPATCH WITH EXPRESSION VISITOR" << "___________________________" << endl;
+	ExprPrinter ep2;
+	ep2.visit(&addition_expression);
+	ExpressionEvaluator exp_evaluator;
+	exp_evaluator.visit(&addition_expression);
+	cout << ep2.str() << " = " << exp_evaluator.evaluate() << endl;
+
+	
 }

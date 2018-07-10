@@ -1,12 +1,15 @@
 #pragma once
 #include "stdafx.h"
-#include <sstream>
+#include "ExpressionVisitor.h"
+#include <iostream>
+
 using namespace std;
 
 class Expression
 {
 public:
 	virtual ~Expression() = default;
+	virtual void accept(ExpressionVisitor *visitor) = 0;
 };
 
 class DoubleExpression : public Expression
@@ -17,6 +20,11 @@ public:
 	virtual ~DoubleExpression()
 	{
 		cout << "~DoubleExpression()" << endl;
+	}
+
+	void accept(ExpressionVisitor* visitor) override
+	{
+		visitor->visit(this);
 	}
 };
 
@@ -32,5 +40,11 @@ public:
 		cout << "~AdditionExpression()" << endl;
 		delete left_;
 		delete right_;
+	}
+
+
+	void accept(ExpressionVisitor *visitor) override
+	{
+		visitor->visit(this);
 	}
 };

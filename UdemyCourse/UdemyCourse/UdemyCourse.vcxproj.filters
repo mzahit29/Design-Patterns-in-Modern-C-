@@ -94,6 +94,9 @@
     <Filter Include="Header Files\Visitor">
       <UniqueIdentifier>{eef99965-2112-4dee-bfa6-a0e36ae79c50}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Visitor">
+      <UniqueIdentifier>{68649e98-9ab5-4070-9523-b9dffbb37801}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -237,6 +240,12 @@
     <ClInclude Include="ExpressionPrinter.h">
       <Filter>Header Files\Visitor</Filter>
     </ClInclude>
+    <ClInclude Include="ExpressionVisitor.h">
+      <Filter>Header Files\Visitor</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressionEvaluator.h">
+      <Filter>Header Files\Visitor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -268,6 +277,12 @@
     </ClCompile>
     <ClCompile Include="State.cpp">
       <Filter>Source Files\State</Filter>
+    </ClCompile>
+    <ClCompile Include="ExpressionVisitor.cpp">
+      <Filter>Source Files\Visitor</Filter>
+    </ClCompile>
+    <ClCompile Include="ExpressionEvaluator.cpp">
+      <Filter>Source Files\Visitor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
