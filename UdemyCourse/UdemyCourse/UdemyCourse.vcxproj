@@ -176,6 +176,7 @@
     <ClInclude Include="HtmlBuilder.h" />
     <ClInclude Include="Interpreter.h" />
     <ClInclude Include="Memento.h" />
+    <ClInclude Include="Multimethods.h" />
     <ClInclude Include="Observable.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Personnn.h" />

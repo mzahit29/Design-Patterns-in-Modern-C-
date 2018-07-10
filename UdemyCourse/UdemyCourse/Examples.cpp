@@ -52,6 +52,7 @@
 #include "ExpressionVisitor.h"
 #include "ExpressionEvaluator.h"
 #include "AcyclicVisitor.h"
+#include "Multimethods.h"
 
 void examples::single_responsibility_run()
 {
@@ -932,4 +933,20 @@ void examples::visitor_run()
 	exp_evaluator2.visit(addition_expression2);
 	cout << ep3.str() << " = " << exp_evaluator2.evaulate() << endl;
 
+
+	cout << "\n\n" << "MULTIMETHODS" << "___________________________" << endl;
+	GameObject *g_ptr = new Spaceship;
+	Planet planet;
+	Asteroid asteroid;
+
+
+	// collide is capable of determining the runtime type id information of the first and second arguments
+	// and calling the specific function
+	collide(*g_ptr, planet);
+	collide(*g_ptr, asteroid);
+	asteroid.collide(planet);
+	collide(planet, planet);
+	
+
+	delete g_ptr;
 }
