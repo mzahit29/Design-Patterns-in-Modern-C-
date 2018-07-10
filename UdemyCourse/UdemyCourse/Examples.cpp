@@ -51,6 +51,7 @@
 #include "ExpressionPrinter.h"
 #include "ExpressionVisitor.h"
 #include "ExpressionEvaluator.h"
+#include "AcyclicVisitor.h"
 
 void examples::single_responsibility_run()
 {
@@ -910,5 +911,25 @@ void examples::visitor_run()
 	exp_evaluator.visit(&addition_expression);
 	cout << ep2.str() << " = " << exp_evaluator.evaluate() << endl;
 
-	
+	cout << "\n\n" << "ACYCLIC VISITOR" << "___________________________" << endl;
+	// VisitorBase class is a placeholder class. It is used to pass different Visitors to Expressions with a common type
+	using AcyclicVisitorNS::ExpressionPrinter;
+	using AcyclicVisitorNS::AdditionExpression;
+	using AcyclicVisitorNS::DoubleExpression;
+	using AcyclicVisitorNS::ExpressionEvaluator;
+
+	AdditionExpression addition_expression2{
+		new DoubleExpression{ 4 },
+		new AdditionExpression{
+			new DoubleExpression{ 1 },
+			new DoubleExpression{ 3 }
+		}
+	};
+
+	ExpressionPrinter ep3;
+	ep3.visit(addition_expression2);
+	ExpressionEvaluator exp_evaluator2;
+	exp_evaluator2.visit(addition_expression2);
+	cout << ep3.str() << " = " << exp_evaluator2.evaulate() << endl;
+
 }
